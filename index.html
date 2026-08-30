@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
 
-  <!-- Fondamentale per visualizzarlo bene su smartphone -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Bar Centrale | Menu</title>
@@ -46,7 +45,7 @@
 
     header {
       text-align: center;
-      margin-bottom: 55px;
+      margin-bottom: 50px;
     }
 
     .logo {
@@ -65,25 +64,58 @@
     }
 
     /* -------------------------
-       TITOLI
+       SEZIONI A TENDINA
     ------------------------- */
 
-    .section {
-      margin-bottom: 65px;
+    .accordion {
+      margin-bottom: 22px;
+      border-top: 1px solid rgba(0,0,0,0.18);
+      border-bottom: 1px solid rgba(0,0,0,0.18);
     }
 
-    .section-title {
-      text-align: center;
+    .accordion summary {
+      list-style: none;
+      cursor: pointer;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 25px 5px;
+
       font-family: "Playfair Display", serif;
-      font-size: 43px;
+      font-size: 32px;
       font-weight: 400;
-      letter-spacing: 5px;
+      letter-spacing: 4px;
       text-transform: uppercase;
-      margin-bottom: 35px;
+
+      user-select: none;
+    }
+
+    .accordion summary::-webkit-details-marker {
+      display: none;
+    }
+
+    /* Freccia */
+
+    .accordion summary::after {
+      content: "+";
+      font-family: "Montserrat", sans-serif;
+      font-size: 28px;
+      font-weight: 300;
+      transition: transform 0.3s ease;
+    }
+
+    .accordion[open] summary::after {
+      content: "−";
+    }
+
+    .accordion-content {
+      padding: 5px 5px 35px;
     }
 
     /* -------------------------
-       CAFFETTERIA
+       VOCI MENU
     ------------------------- */
 
     .two-columns {
@@ -136,6 +168,7 @@
 
       display: flex;
       justify-content: space-between;
+      gap: 10px;
 
       margin-bottom: 12px;
     }
@@ -164,7 +197,7 @@
     .coffee-decoration {
       text-align: center;
       font-size: 70px;
-      margin: 25px 0 50px;
+      margin: 45px 0 50px;
     }
 
     /* -------------------------
@@ -228,14 +261,18 @@
         letter-spacing: 3px;
       }
 
-      .section {
-        margin-bottom: 50px;
+      .accordion summary {
+        font-size: 24px;
+        letter-spacing: 2px;
+        padding: 20px 3px;
       }
 
-      .section-title {
-        font-size: 30px;
-        letter-spacing: 3px;
-        margin-bottom: 28px;
+      .accordion summary::after {
+        font-size: 24px;
+      }
+
+      .accordion-content {
+        padding: 5px 3px 30px;
       }
 
       .two-columns,
@@ -265,6 +302,11 @@
     }
 
     @media (max-width: 430px) {
+
+      .accordion summary {
+        font-size: 21px;
+        letter-spacing: 1.5px;
+      }
 
       .specials {
         grid-template-columns: 1fr;
@@ -300,295 +342,305 @@
     </header>
 
 
+    <!-- =========================
+         CAFFETTERIA
+    ========================== -->
 
-    <!-- CAFFETTERIA -->
+    <details class="accordion">
 
-    <section class="section">
-
-      <h2 class="section-title">
+      <summary>
         Caffetteria
-      </h2>
+      </summary>
 
-      <div class="two-columns">
+      <div class="accordion-content">
 
+        <div class="two-columns">
 
-        <!-- COLONNA SINISTRA -->
+          <!-- COLONNA SINISTRA -->
 
-        <div>
+          <div>
 
-          <div class="menu-item">
-            <span class="menu-item-name">Caffè Espresso</span>
-            <span class="price">€1,30</span>
+            <div class="menu-item">
+              <span class="menu-item-name">Caffè Espresso</span>
+              <span class="price">€1,30</span>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-item-name">Caffè Americano</span>
+              <span class="price">€1,80</span>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-item-name">Caffè Decaffeinato</span>
+              <span class="price">€1,50</span>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-item-name">Caffè Macchiato</span>
+              <span class="price">€1,50</span>
+            </div>
+
+            <div class="menu-item variation">
+              <span class="menu-item-name">Soia / Avena</span>
+              <span class="price">+ €0,30</span>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-item-name">Caffè Corretto</span>
+              <span class="price">€2,00</span>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-item-name">Caffè Doppio</span>
+              <span class="price">€2,50</span>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-item-name">Cappuccino</span>
+              <span class="price">€2,00</span>
+            </div>
+
           </div>
 
-          <div class="menu-item">
-            <span class="menu-item-name">Caffè Americano</span>
-            <span class="price">€1,80</span>
-          </div>
 
-          <div class="menu-item">
-            <span class="menu-item-name">Caffè Decaffeinato</span>
-            <span class="price">€1,50</span>
-          </div>
+          <!-- COLONNA DESTRA -->
 
-          <div class="menu-item">
-            <span class="menu-item-name">Caffè Macchiato</span>
-            <span class="price">€1,50</span>
-          </div>
+          <div>
 
-          <div class="menu-item variation">
-            <span class="menu-item-name">Soia / Avena</span>
-            <span class="price">+ €0,30</span>
-          </div>
+            <div class="menu-item">
+              <span class="menu-item-name">Ginseng Piccolo</span>
+              <span class="price">€1,50</span>
+            </div>
 
-          <div class="menu-item">
-            <span class="menu-item-name">Caffè Corretto</span>
-            <span class="price">€2,00</span>
-          </div>
+            <div class="menu-item">
+              <span class="menu-item-name">Ginseng Grande</span>
+              <span class="price">€1,80</span>
+            </div>
 
-          <div class="menu-item">
-            <span class="menu-item-name">Caffè Doppio</span>
-            <span class="price">€2,50</span>
-          </div>
+            <div class="menu-item">
+              <span class="menu-item-name">Orzo Piccolo</span>
+              <span class="price">€1,50</span>
+            </div>
 
-          <div class="menu-item">
-            <span class="menu-item-name">Cappuccino</span>
-            <span class="price">€2,00</span>
-          </div>
+            <div class="menu-item">
+              <span class="menu-item-name">Orzo Grande</span>
+              <span class="price">€2,00</span>
+            </div>
 
-        </div>
+            <div class="menu-item">
+              <span class="menu-item-name">Latte Macchiato</span>
+              <span class="price">€2,20</span>
+            </div>
 
+            <div class="menu-item">
+              <span class="menu-item-name">Caffè Shakerato</span>
+              <span class="price">€3,00</span>
+            </div>
 
+            <div class="menu-item">
+              <span class="menu-item-name">Thè</span>
+              <span class="price">€3,00</span>
+            </div>
 
-        <!-- COLONNA DESTRA -->
+            <div class="menu-item">
+              <span class="menu-item-name">Tisana</span>
+              <span class="price">€3,00</span>
+            </div>
 
-        <div>
-
-          <div class="menu-item">
-            <span class="menu-item-name">Ginseng Piccolo</span>
-            <span class="price">€1,50</span>
-          </div>
-
-          <div class="menu-item">
-            <span class="menu-item-name">Ginseng Grande</span>
-            <span class="price">€1,80</span>
-          </div>
-
-          <div class="menu-item">
-            <span class="menu-item-name">Orzo Piccolo</span>
-            <span class="price">€1,50</span>
-          </div>
-
-          <div class="menu-item">
-            <span class="menu-item-name">Orzo Grande</span>
-            <span class="price">€2,00</span>
-          </div>
-
-          <div class="menu-item">
-            <span class="menu-item-name">Latte Macchiato</span>
-            <span class="price">€2,20</span>
-          </div>
-
-          <div class="menu-item">
-            <span class="menu-item-name">Caffè Shakerato</span>
-            <span class="price">€3,00</span>
-          </div>
-
-          <div class="menu-item">
-            <span class="menu-item-name">Thè</span>
-            <span class="price">€3,00</span>
-          </div>
-
-          <div class="menu-item">
-            <span class="menu-item-name">Tisana</span>
-            <span class="price">€3,00</span>
           </div>
 
         </div>
 
       </div>
 
-    </section>
+    </details>
 
 
+    <!-- =========================
+         GLI SPECIALI
+    ========================== -->
 
-    <!-- GLI SPECIALI -->
+    <details class="accordion">
 
-    <section class="section">
-
-      <h2 class="section-title">
+      <summary>
         Gli Speciali
-      </h2>
+      </summary>
+
+      <div class="accordion-content">
+
+        <div class="specials">
+
+          <div class="special-card">
+
+            <h3>
+              <span>Cremino</span>
+              <span>€2,50</span>
+            </h3>
+
+            <ul>
+              <li>Cioccolato</li>
+              <li>Caffè</li>
+              <li>Latte</li>
+              <li>Cacao</li>
+              <li>Panna + €0,50</li>
+            </ul>
+
+          </div>
 
 
-      <div class="specials">
+          <div class="special-card">
 
-        <div class="special-card">
+            <h3>
+              <span>Pistacchioso</span>
+              <span>€2,50</span>
+            </h3>
 
-          <h3>
-            <span>Cremino</span>
-            <span>€2,50</span>
-          </h3>
+            <ul>
+              <li>Pistacchio</li>
+              <li>Caffè</li>
+              <li>Latte</li>
+              <li>Granella di pistacchio</li>
+              <li>Panna + €0,50</li>
+            </ul>
 
-          <ul>
-            <li>Cioccolato</li>
-            <li>Caffè</li>
-            <li>Latte</li>
-            <li>Cacao</li>
-            <li>Panna + €0,50</li>
-          </ul>
-
-        </div>
+          </div>
 
 
-        <div class="special-card">
+          <div class="special-card">
 
-          <h3>
-            <span>Pistacchioso</span>
-            <span>€2,50</span>
-          </h3>
+            <h3>
+              <span>Nocciolino</span>
+              <span>€2,50</span>
+            </h3>
 
-          <ul>
-            <li>Pistacchio</li>
-            <li>Caffè</li>
-            <li>Latte</li>
-            <li>Granella di pistacchio</li>
-            <li>Panna + €0,50</li>
-          </ul>
+            <ul>
+              <li>Cioccolato</li>
+              <li>Caffè</li>
+              <li>Latte</li>
+              <li>Granella di nocciole</li>
+              <li>Panna + €0,50</li>
+            </ul>
 
-        </div>
-
-
-        <div class="special-card">
-
-          <h3>
-            <span>Nocciolino</span>
-            <span>€2,50</span>
-          </h3>
-
-          <ul>
-            <li>Cioccolato</li>
-            <li>Caffè</li>
-            <li>Latte</li>
-            <li>Granella di nocciole</li>
-            <li>Panna + €0,50</li>
-          </ul>
-
-        </div>
+          </div>
 
 
-        <div class="special-card">
+          <div class="special-card">
 
-          <h3>
-            <span>Nutelloso</span>
-            <span>€2,50</span>
-          </h3>
+            <h3>
+              <span>Nutelloso</span>
+              <span>€2,50</span>
+            </h3>
 
-          <ul>
-            <li>Nutella</li>
-            <li>Caffè</li>
-            <li>Latte</li>
-            <li>Granella al cioccolato</li>
-            <li>Panna + €0,50</li>
-          </ul>
+            <ul>
+              <li>Nutella</li>
+              <li>Caffè</li>
+              <li>Latte</li>
+              <li>Granella al cioccolato</li>
+              <li>Panna + €0,50</li>
+            </ul>
+
+          </div>
 
         </div>
 
       </div>
 
-    </section>
+    </details>
 
 
+    <!-- =========================
+         DOLCI E SALATI
+    ========================== -->
 
-    <!-- DOLCI E SALATI -->
+    <details class="accordion">
 
-    <section class="section">
-
-      <h2 class="section-title">
+      <summary>
         I Dolci e Salati
-      </h2>
+      </summary>
 
+      <div class="accordion-content">
 
-      <div class="food-columns">
+        <div class="food-columns">
 
-        <div>
+          <div>
 
-          <div class="menu-item">
-            <span>Brioche</span>
-            <span class="price">€1,50</span>
+            <div class="menu-item">
+              <span>Brioche</span>
+              <span class="price">€1,50</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Biscotto</span>
+              <span class="price">€0,80</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Biscotto Farcito</span>
+              <span class="price">€1,00</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Ciambella</span>
+              <span class="price">€1,70</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Croissant</span>
+              <span class="price">€1,50</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Muffin</span>
+              <span class="price">€2,50</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Pancakes</span>
+              <span class="price">€5,00</span>
+            </div>
+
           </div>
 
-          <div class="menu-item">
-            <span>Biscotto</span>
-            <span class="price">€0,80</span>
-          </div>
 
-          <div class="menu-item">
-            <span>Biscotto Farcito</span>
-            <span class="price">€1,00</span>
-          </div>
+          <div>
 
-          <div class="menu-item">
-            <span>Ciambella</span>
-            <span class="price">€1,70</span>
-          </div>
+            <div class="menu-item">
+              <span>Maritozzo con Panna</span>
+              <span class="price">€2,00</span>
+            </div>
 
-          <div class="menu-item">
-            <span>Croissant</span>
-            <span class="price">€1,50</span>
-          </div>
+            <div class="menu-item">
+              <span>Waffle</span>
+              <span class="price">€3,50</span>
+            </div>
 
-          <div class="menu-item">
-            <span>Muffin</span>
-            <span class="price">€2,50</span>
-          </div>
+            <div class="menu-item">
+              <span>Pizzetta</span>
+              <span class="price">€1,70</span>
+            </div>
 
-          <div class="menu-item">
-            <span>Pancakes</span>
-            <span class="price">€5,00</span>
-          </div>
+            <div class="menu-item">
+              <span>Tramezzino</span>
+              <span class="price">€3,00</span>
+            </div>
 
-        </div>
+            <div class="menu-item">
+              <span>Piadina</span>
+              <span class="price">€2,50</span>
+            </div>
 
+            <div class="menu-item">
+              <span>Focaccia Ripiena</span>
+              <span class="price">€3,50</span>
+            </div>
 
-        <div>
-
-          <div class="menu-item">
-            <span>Maritozzo con Panna</span>
-            <span class="price">€2,00</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Waffle</span>
-            <span class="price">€3,50</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Pizzetta</span>
-            <span class="price">€1,70</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Tramezzino</span>
-            <span class="price">€3,00</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Piadina</span>
-            <span class="price">€2,50</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Focaccia Ripiena</span>
-            <span class="price">€3,50</span>
           </div>
 
         </div>
 
       </div>
 
-    </section>
-
+    </details>
 
 
     <!-- DECORAZIONE -->
@@ -596,7 +648,6 @@
     <div class="coffee-decoration">
       ☕
     </div>
-
 
 
     <!-- FOOTER -->

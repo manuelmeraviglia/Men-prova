@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Bar Centrale | Chi Siamo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="components/navigation/navigation.css">
+  <link rel="stylesheet" href="components/footer/footer.css">
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #f8f4ef;
+      color: #171717;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .page {
+      max-width: 750px;
+      margin: auto;
+      padding: 130px 25px 80px;
+      text-align: center;
+    }
+
+    .logo-image {
+      width: min(260px, 70vw);
+      margin-bottom: 50px;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 48px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      margin-bottom: 35px;
+    }
+
+    p {
+      font-family: "Playfair Display", serif;
+      font-size: 22px;
+      line-height: 1.7;
+    }
+
+    .location-section {
+      margin-top: 50px;
+      text-align: left;
+    }
+
+    .location-section h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 30px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+      color: #171717;
+    }
+
+    .location-card {
+      background: rgba(255, 255, 255, 0.4);
+      border: 1px solid rgba(23, 23, 23, 0.12);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 10px 30px rgba(24, 20, 16, 0.06);
+    }
+
+    .map-frame {
+      width: 100%;
+      height: 320px;
+      border: 0;
+      border-radius: 14px;
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .location-address {
+      font-family: "Montserrat", sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #2d2d2d;
+    }
+
+    .location-address a {
+      color: #171717;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .map-label {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 8px 12px;
+      background: #171717;
+      color: #f8f4ef;
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    @media (max-width: 700px) {
+
+      .nav {
+        padding: 20px;
+      }
+
+      .navigation {
+        top: 78px;
+        right: 20px;
+      }
+
+      .page {
+        padding-top: 110px;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      p {
+        font-size: 19px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div id="nav-container"></div>
+  <script src="components/navigation/navigation.js"></script>
+
+  <main class="page">
+
+<img
+  src="assets/bar_logo.jpeg"
+  alt="Bar Centrale"
+  class="logo-image"
+>
+
+<h1>Chi Siamo</h1>
+
+<p>
+  Bar Centrale e' il posto migliore per gustarsi un buon caffe',
+  mangiare una fetta di torta e farsi una sedga.
+</p>
+
+<section class="location-section" aria-label="Dove siamo">
+  <h2>Dove siamo</h2>
+
+  <div class="location-card">
+    <span class="map-label">Bar Centrale</span>
+    <iframe
+      class="map-frame"
+      src="https://maps.google.com/maps?q=Piazza%20Angelo%20Borroni%2020%2020045%20Lainate%20MI&t=m&z=17&output=embed"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      allowfullscreen
+      title="Mappa di Bar Centrale a Lainate">
+    </iframe>
+
+    <p class="location-address">
+      <a href="https://www.google.com/maps/search/?api=1&query=Piazza+Angelo+Borroni+20,+20045+Lainate+MI" target="_blank" rel="noopener noreferrer">
+        Bar Centrale<br>
+        Piazza Angelo Borroni, 20, 20045 Lainate MI
+      </a>
+    </p>
+  </div>
+</section>
+
+  </main>
+
+  <div id="footer-container"></div>
+  <script src="components/footer/footer.js"></script>
+
+</body>
+</html>

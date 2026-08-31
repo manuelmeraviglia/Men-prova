@@ -1,0 +1,39 @@
+/* -------------------------
+   FOOTER
+------------------------ */
+
+footer {
+  text-align: center;
+  padding-top: 25px;
+  border-top: 1px solid rgba(0,0,0,0.15);
+}
+
+.social-title {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.socials {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.socials a {
+  color: #171717;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.instagram {
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+.address {
+  margin-top: 8px;
+  font-size: 12px;
+  opacity: 0.65;
+}

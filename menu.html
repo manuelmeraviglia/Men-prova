@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Bar Centrale | Menu</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="components/navigation/navigation.css">
+  <link rel="stylesheet" href="components/footer/footer.css">
+
+  <style>
+
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+
+        html {
+          scroll-behavior: smooth;
+        }
+
+        body {
+          background: #f8f4ef;
+          color: #171717;
+          font-family: "Montserrat", sans-serif;
+          font-weight: 400;
+        }
+
+        .menu-container {
+          width: 92%;
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 50px 20px 70px;
+        }
+
+    /* -------------------------
+       HEADER
+    ------------------------- */
+
+    header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 56px;
+      font-weight: 400;
+      letter-spacing: 6px;
+      margin-bottom: 10px;
+    }
+
+    .logo-image {
+      display: block;
+      margin: 0 auto 14px;
+      max-width: 320px;
+      height: auto;
+    }
+
+    .subtitle {
+      font-size: 20x;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      opacity: 0.75;
+    }
+
+    /* -------------------------
+       SEZIONI A TENDINA
+    ------------------------- */
+
+    .accordion {
+      margin-bottom: 22px;
+      border-top: 1px solid rgba(0,0,0,0.18);
+      border-bottom: 1px solid rgba(0,0,0,0.18);
+    }
+
+    .accordion summary {
+      list-style: none;
+      cursor: pointer;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 25px 5px;
+
+      font-family: "Playfair Display", serif;
+      font-size: 32px;
+      font-weight: 400;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+
+      user-select: none;
+    }
+
+    .accordion summary::-webkit-details-marker {
+      display: none;
+    }
+
+    /* Freccia */
+
+    .accordion summary::after {
+      content: "+";
+      font-family: "Montserrat", sans-serif;
+      font-size: 28px;
+      font-weight: 300;
+      transition: transform 0.3s ease;
+    }
+
+    .accordion[open] summary::after {
+      content: "−";
+    }
+
+    .accordion-content {
+      padding: 5px 5px 35px;
+    }
+
+    /* -------------------------
+       VOCI MENU
+    ------------------------- */
+
+    .two-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 20px;
+
+      margin-bottom: 12px;
+
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    .menu-item-name {
+      flex: 1;
+    }
+
+    .price {
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    .variation {
+      padding-left: 28px;
+      font-size: 12px;
+      opacity: 0.75;
+    }
+
+    /* -------------------------
+       GLI SPECIALI
+    ------------------------- */
+
+    .specials {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .special-card h3 {
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+
+      margin-bottom: 12px;
+    }
+
+    .special-card ul {
+      padding-left: 18px;
+      font-size: 12px;
+      line-height: 1.7;
+      text-transform: uppercase;
+    }
+
+    /* -------------------------
+       DOLCI E SALATI
+    ------------------------- */
+
+    .food-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    /* -------------------------
+       DECORAZIONE
+    ------------------------- */
+
+    .coffee-decoration {
+      text-align: center;
+      font-size: 70px;
+      margin: 45px 0 50px;
+    }
+
+    /* -------------------------
+       VERSIONE SMARTPHONE
+    ------------------------- */
+
+    @media (max-width: 700px) {
+
+      .menu-container {
+        width: 100%;
+        padding: 35px 22px 50px;
+      }
+
+      .logo {
+        font-size: 38px;
+        letter-spacing: 4px;
+      }
+
+      .logo-image {
+        max-width: 220px;
+      }
+
+      .subtitle {
+        font-size: 11px;
+        letter-spacing: 4px;
+      }
+
+      .subtitle {
+        font-size: 9px;
+        letter-spacing: 3px;
+      }
+
+      .accordion summary {
+        font-size: 24px;
+        letter-spacing: 2px;
+        padding: 20px 3px;
+      }
+
+      .accordion summary::after {
+        font-size: 24px;
+      }
+
+      .accordion-content {
+        padding: 5px 3px 30px;
+      }
+
+      .two-columns,
+      .food-columns {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .specials {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px 25px;
+      }
+
+      .menu-item {
+        font-size: 12px;
+        margin-bottom: 13px;
+      }
+
+      .special-card h3 {
+        font-size: 12px;
+      }
+
+      .special-card ul {
+        font-size: 11px;
+      }
+
+    }
+
+    @media (max-width: 430px) {
+
+      .accordion summary {
+        font-size: 21px;
+        letter-spacing: 1.5px;
+      }
+
+      .logo-image {
+        max-width: 180px;
+      }
+
+      .subtitle {
+        font-size: 10px;
+        letter-spacing: 3px;
+      }
+
+      .specials {
+        grid-template-columns: 1fr;
+      }
+
+      .special-card {
+        border-bottom: 1px solid rgba(0,0,0,0.12);
+        padding-bottom: 22px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <div id="nav-container"></div>
+  <script src="components/navigation/navigation.js"></script>
+
+  <main class="menu-container">
+
+    <!-- HEADER -->
+
+    <header>
+
+      <img src="assets/bar_logo.jpeg" alt="Bar Centrale logo" class="logo-image">
+
+      <p class="subtitle">
+        Caffetteria · Aperitivi · Cocktail
+      </p>
+
+    </header>
+
+
+    <!-- =========================
+         CAFFETTERIA
+    ========================== -->
+
+    <details class="accordion">
+
+      <summary>
+        Caffetteria
+      </summary>
+
+      <div class="accordion-content">
+
+        <div class="two-columns">
+
+          <!-- COLONNA SINISTRA -->
+
+          <div>
+
+            <div class="menu-item">
+              <span class="menu-item-name">Caffè Espresso</span>
+              <span class="price">€1,30</span>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-item-name">Caffè Americano</span>
+              <span class="price">€1,80</span>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-item-name">Caffè Decaffeinato</span>
+              <span class="price">€1,50</span>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-item-name">Caffè Macchiato</span>
+              <span class="price">€1,50</span>
+            </div>
+
+            <div class="menu-item variation">
+              <span class="menu-item-name">Soia / Avena</span>
+              <span class="price">+ €0,30</span>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-item-name">Caffè Corretto</span>
+              <span class="price">€2,00</span>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-item-name">Caffè Doppio</span>
+              <span class="price">€2,50</span>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-item-name">Cappuccino</span>
+              <span class="price">€2,00</span>
+            </div>
+
+          </div>
+
+
+          <!-- COLONNA DESTRA -->
+
+          <div>
+
+            <div class="menu-item">
+              <span class="menu-item-name">Ginseng Piccolo</span>
+              <span class="price">€1,50</span>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-item-name">Ginseng Grande</span>
+              <span class="price">€1,80</span>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-item-name">Orzo Piccolo</span>
+              <span class="price">€1,50</span>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-item-name">Orzo Grande</span>
+              <span class="price">€2,00</span>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-item-name">Latte Macchiato</span>
+              <span class="price">€2,20</span>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-item-name">Caffè Shakerato</span>
+              <span class="price">€3,00</span>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-item-name">Thè</span>
+              <span class="price">€3,00</span>
+            </div>
+
+            <div class="menu-item">
+              <span class="menu-item-name">Tisana</span>
+              <span class="price">€3,00</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </details>
+
+
+    <!-- =========================
+         GLI SPECIALI
+    ========================== -->
+
+    <details class="accordion">
+
+      <summary>
+        Gli Speciali
+      </summary>
+
+      <div class="accordion-content">
+
+        <div class="specials">
+
+          <div class="special-card">
+
+            <h3>
+              <span>Cremino</span>
+              <span>€2,50</span>
+            </h3>
+
+            <ul>
+              <li>Cioccolato</li>
+              <li>Caffè</li>
+              <li>Latte</li>
+              <li>Cacao</li>
+              <li>Panna + €0,50</li>
+            </ul>
+
+          </div>
+
+
+          <div class="special-card">
+
+            <h3>
+              <span>Pistacchioso</span>
+              <span>€2,50</span>
+            </h3>
+
+            <ul>
+              <li>Pistacchio</li>
+              <li>Caffè</li>
+              <li>Latte</li>
+              <li>Granella di pistacchio</li>
+              <li>Panna + €0,50</li>
+            </ul>
+
+          </div>
+
+
+          <div class="special-card">
+
+            <h3>
+              <span>Nocciolino</span>
+              <span>€2,50</span>
+            </h3>
+
+            <ul>
+              <li>Cioccolato</li>
+              <li>Caffè</li>
+              <li>Latte</li>
+              <li>Granella di nocciole</li>
+              <li>Panna + €0,50</li>
+            </ul>
+
+          </div>
+
+
+          <div class="special-card">
+
+            <h3>
+              <span>Nutelloso</span>
+              <span>€2,50</span>
+            </h3>
+
+            <ul>
+              <li>Nutella</li>
+              <li>Caffè</li>
+              <li>Latte</li>
+              <li>Granella al cioccolato</li>
+              <li>Panna + €0,50</li>
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </details>
+
+
+    <!-- =========================
+         DOLCI E SALATI
+    ========================== -->
+
+    <details class="accordion">
+
+      <summary>
+        I Dolci e Salati
+      </summary>
+
+      <div class="accordion-content">
+
+        <div class="food-columns">
+
+          <div>
+
+            <div class="menu-item">
+              <span>Brioche</span>
+              <span class="price">€1,50</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Biscotto</span>
+              <span class="price">€0,80</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Biscotto Farcito</span>
+              <span class="price">€1,00</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Ciambella</span>
+              <span class="price">€1,70</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Croissant</span>
+              <span class="price">€1,50</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Muffin</span>
+              <span class="price">€2,50</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Pancakes</span>
+              <span class="price">€5,00</span>
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <div class="menu-item">
+              <span>Maritozzo con Panna</span>
+              <span class="price">€2,00</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Waffle</span>
+              <span class="price">€3,50</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Pizzetta</span>
+              <span class="price">€1,70</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Tramezzino</span>
+              <span class="price">€3,00</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Piadina</span>
+              <span class="price">€2,50</span>
+            </div>
+
+            <div class="menu-item">
+              <span>Focaccia Ripiena</span>
+              <span class="price">€3,50</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </details>
+
+
+  </main>
+
+  <div id="footer-container"></div>
+  <script src="components/footer/footer.js"></script>
+
+</body>
+</html>

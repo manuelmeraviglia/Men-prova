@@ -1,0 +1,76 @@
+/*File containing style instructions for navigation header*/
+
+.nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  padding: 28px 32px;
+}
+
+.menu-button {
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  background: #f8f4ef;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-button span {
+  width: 18px;
+  height: 1px;
+  background: #171717;
+  transition: 0.3s ease;
+}
+
+.navigation {
+  position: absolute;
+  top: 88px;
+  right: 32px;
+  min-width: 190px;
+  background: #f8f4ef;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 10px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: 0.25s ease;
+}
+
+.nav:hover .navigation {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.navigation a {
+  display: block;
+  padding: 14px 20px;
+  color: #171717;
+  text-decoration: none;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: background 0.2s ease;
+}
+
+.navigation a:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 700px) {
+  .nav {
+    padding: 20px;
+  }
+
+  .navigation {
+    top: 78px;
+    right: 20px;
+  }
+}

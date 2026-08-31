@@ -1,0 +1,68 @@
+/* -------------------------
+   LOCATION CARD
+------------------------ */
+
+.location-section {
+  width: 100%;
+  max-width: 760px;
+  margin: 50px auto 0;
+  text-align: left;
+}
+
+.location-section h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 18px;
+  color: #171717;
+}
+
+.location-card {
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(23, 23, 23, 0.12);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(24, 20, 16, 0.06);
+}
+
+.map-frame {
+  width: 100%;
+  height: 320px;
+  border: 0;
+  border-radius: 14px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.location-address {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #2d2d2d;
+}
+
+.location-address a {
+  color: #171717;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.map-label {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  background: #171717;
+  color: #f8f4ef;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .location-section {
+    margin-top: 40px;
+  }
+}

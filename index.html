@@ -16,6 +16,7 @@
 
   <link rel="stylesheet" href="components/navigation/navigation.css">
   <link rel="stylesheet" href="components/footer/footer.css">
+  <link rel="stylesheet" href="components/location-card/location-card.css">
 
   <style>
 
@@ -77,9 +78,10 @@
       margin: 0 auto;
 
       font-family: "Playfair Display", serif;
-      font-size: 30px;
+      font-size: 20px;
       line-height: 1.55;
       font-weight: 400;
+      font-style: italic;
     }
 
     .image-slider {
@@ -160,6 +162,44 @@
       opacity: 0.6;
     }
 
+    .menu-link {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 22px;
+      border: 1px solid rgba(23, 23, 23, 0.25);
+      border-radius: 999px;
+      color: #171717;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 20px;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .menu-link:hover {
+      background: rgba(23, 23, 23, 0.04);
+      transform: translateY(-1px);
+    }
+
+    .gallery-link {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 22px;
+      border: 1px solid rgba(23, 23, 23, 0.25);
+      border-radius: 999px;
+      color: #171717;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 10px;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .gallery-link:hover {
+      background: rgba(23, 23, 23, 0.04);
+      transform: translateY(-1px);
+    }
+
     /* =========================
        SCROLL INDICATOR
     ========================= */
@@ -208,8 +248,9 @@
       }
 
       .description {
-        font-size: 23px;
+        font-size: 18px;
         line-height: 1.5;
+        font-style: italic;
       }
 
       .location {
@@ -250,6 +291,8 @@
     Caffetteria · Aperitivi · Cocktail
   </p>
 
+  <a class="menu-link" href="menu.html">Scopri il nostro menu'</a>
+
   <div class="image-slider" aria-label="Galleria immagini del bar">
     <button class="slider-btn prev" type="button" aria-label="Immagine precedente">&#10094;</button>
 
@@ -262,10 +305,15 @@
   </div>
 
   <p class="description">
-    Un luogo dove iniziare bene la giornata,
-    concedersi una pausa e incontrarsi
-    davanti a un buon caffè o a un aperitivo.
+    Dal 1958, il cuore accogliente di Lainate
+    Correva l'anno 1958 quando il Bar Centrale ha aperto per la prima volta le sue porte. Quello che nacque come pub e celebre paninoteca di quartiere, nel tempo si è trasformato in una caffetteria d'eccellenza e in uno dei punti di riferimento più longevi e amati di Lainate e dintorni.
+    Dietro al nostro bancone c’è una storia familiare giunta oggi alla sua terza generazione: il sorriso e l'esperienza di Lella (Marina) si uniscono alla passione di Manuel, per offrire ogni giorno la massima qualità firmata Illy Caffè, prodotti selezionati e un'accoglienza calorosa.
+    Una storia che dura da oltre mezzo secolo, scritta giorno dopo giorno insieme a voi.
   </p>
+
+  <a class="gallery-link" href="gallery.html">Scopri la gallery</a>
+
+  <div id="location-card-container"></div>
 
 </div>
 
@@ -274,6 +322,7 @@
 
   <div id="footer-container"></div>
   <script src="components/footer/footer.js"></script>
+  <script src="components/location-card/location-card.js"></script>
   <script>
     const slides = Array.from(document.querySelectorAll('.slide'));
     const prevButton = document.querySelector('.slider-btn.prev');

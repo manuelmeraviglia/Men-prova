@@ -1,0 +1,30 @@
+.site-header {
+  text-align: center;
+}
+
+.site-header__logo {
+  display: block;
+  width: min(500px, 80vw);
+  height: auto;
+  margin: 0 auto 25px;
+}
+
+.site-header__subtitle {
+  font-size: 18px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  opacity: 0.65;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 700px) {
+  .site-header__logo {
+    width: min(300px, 78vw);
+  }
+
+  .site-header__subtitle {
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-bottom: 22px;
+  }
+}

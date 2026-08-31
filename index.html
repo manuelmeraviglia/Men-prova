@@ -12,9 +12,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="components/navigation/navigation.css">
+  <link rel="stylesheet" href="components/site-header/site-header.css">
   <link rel="stylesheet" href="components/footer/footer.css">
   <link rel="stylesheet" href="components/location-card/location-card.css">
 
@@ -58,31 +59,6 @@
       text-align: center;
     }
 
-    .logo-image {
-      display: block;
-      width: min(320px, 70vw);
-      height: auto;
-      margin: 0 auto 25px;
-    }
-
-    .subtitle {
-      font-size: 12px;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      opacity: 0.65;
-      margin-bottom: 55px;
-    }
-
-    .description {
-      max-width: 650px;
-      margin: 0 auto;
-
-      font-family: "Playfair Display", serif;
-      font-size: 20px;
-      line-height: 1.55;
-      font-weight: 400;
-      font-style: italic;
-    }
 
     .image-slider {
       position: relative;
@@ -93,6 +69,9 @@
     .slider-track {
       position: relative;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border-radius: 22px;
       box-shadow: 0 20px 50px rgba(23, 23, 23, 0.12);
       background: #efe6dc;
@@ -102,10 +81,12 @@
     .slide {
       display: none;
       width: 100%;
+      max-width: 100%;
       height: auto;
       max-height: 520px;
       object-fit: contain;
       background: #efe6dc;
+      margin: 0 auto;
     }
 
     .slide.active {
@@ -201,6 +182,26 @@
     }
 
     /* =========================
+       STORY SECTION
+    ========================= */
+
+    .story-title {
+      font-family: "Quicksand", sans-serif;
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+
+    .story-description {
+      font-family: "Quicksand", sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    /* =========================
        SCROLL INDICATOR
     ========================= */
 
@@ -237,25 +238,17 @@
         padding: 80px 25px;
       }
 
-      .logo-image {
-        width: min(230px, 70vw);
-      }
-
-      .subtitle {
-        font-size: 9px;
-        letter-spacing: 3px;
-        margin-bottom: 40px;
-      }
-
-      .description {
-        font-size: 18px;
-        line-height: 1.5;
-        font-style: italic;
-      }
-
       .location {
         font-size: 9px;
         letter-spacing: 2px;
+      }
+
+      .story-title {
+        font-size: 24px;
+      }
+
+      .story-description {
+        font-size: 15px;
       }
 
       .scroll {
@@ -281,15 +274,8 @@
 
 <div class="hero-content">
 
-  <img
-    src="assets/bar_logo.jpeg"
-    alt="Bar Centrale"
-    class="logo-image"
-  >
-
-  <p class="subtitle">
-    Caffetteria · Aperitivi · Cocktail
-  </p>
+  <div id="site-header-container" data-subtitle="Caffetteria · Aperitivi · Cocktail"></div>
+  <script src="components/site-header/site-header.js"></script>
 
   <a class="menu-link" href="menu.html">Scopri il nostro menu'</a>
 
@@ -304,11 +290,24 @@
     <button class="slider-btn next" type="button" aria-label="Immagine successiva">&#10095;</button>
   </div>
 
-  <p class="description">
-    Dal 1958, il cuore accogliente di Lainate
-    Correva l'anno 1958 quando il Bar Centrale ha aperto per la prima volta le sue porte. Quello che nacque come pub e celebre paninoteca di quartiere, nel tempo si è trasformato in una caffetteria d'eccellenza e in uno dei punti di riferimento più longevi e amati di Lainate e dintorni.
-    Dietro al nostro bancone c’è una storia familiare giunta oggi alla sua terza generazione: il sorriso e l'esperienza di Lella (Marina) si uniscono alla passione di Manuel, per offrire ogni giorno la massima qualità firmata Illy Caffè, prodotti selezionati e un'accoglienza calorosa.
-    Una storia che dura da oltre mezzo secolo, scritta giorno dopo giorno insieme a voi.
+  <h2 class="story-title">
+    La nostra storia
+  </h2>
+
+  <p class="story-description">
+    Il Bar Centrale Illy è molto più di un semplice cafè: è un pezzo di storia di Lainate. 
+    Fondato nel 1958, il nostro locale racchiude oltre sessant'anni di passione, ricordi e 
+    accoglienza a gestione familiare.<br><br>
+
+    Nati originariamente come storica paninoteca e pub di riferimento per il territorio, negli 
+    anni ci siamo evoluti con costante dedizione per diventare una vera e propria caffetteria 
+    d'eccellenza. Oggi la tradizione continua con la terza generazione: accanto a Marina, per 
+    tutti semplicemente Lella, anima e volto storico del bar, c'è il figlio Manuel, che porta 
+    avanti con entusiasmo e visione il patrimonio di famiglia.<br><br>
+
+    Dalla ricca colazione con l'aroma inconfondibile del caffè Illy alla pausa pranzo, fino al 
+    rito dell'aperitivo, il Bar Centrale è da sempre il punto di ritrovo ideale per generazioni 
+    di lainatesi e per chiunque desideri sentirsi a casa.
   </p>
 
   <a class="gallery-link" href="gallery.html">Scopri la gallery</a>

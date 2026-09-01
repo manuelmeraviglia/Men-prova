@@ -25,42 +25,6 @@
   <link rel="stylesheet" href="components/location-card/location-card.css">
 
   <style>
-  /* =========================
-   ANIMAZIONI SCROLL
-========================= */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(35px);
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.reveal-delay-1 {
-  transition-delay: 0.1s;
-}
-
-.reveal-delay-2 {
-  transition-delay: 0.2s;
-}
-
-.reveal-delay-3 {
-  transition-delay: 0.3s;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
 
     * {
       box-sizing: border-box;
@@ -281,7 +245,7 @@
 
       <div
 
-        class="image-slider reveal"
+        class="image-slider"
 
         aria-label="Galleria immagini del bar">
 
@@ -484,6 +448,28 @@
       showSlide(currentIndex + 1);
 
     }, 4000);
+
+    /* =========================
+
+       SCROLL REVEAL
+
+    ========================= */
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    document.querySelectorAll('.reveal').forEach((el) => {
+      revealObserver.observe(el);
+    });
 
   </script>
 

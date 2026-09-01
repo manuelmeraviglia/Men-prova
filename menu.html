@@ -4,11 +4,9 @@
 
 <title>Bar Centrale | Menu</title>
 
-<!-- Fonts -->
+<!-- Global styles -->
 
-<link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" >
+<link rel="stylesheet" href="global_styles.css">
 
 <!-- Components -->
 
@@ -35,16 +33,6 @@
     min-height: 100vh;
     background: #f8f4ef;
     color: #171717;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
-  }
-
-  /* Garantisce che i componenti ereditino la tipografia globale */
-  button,
-  input,
-  textarea,
-  select {
-    font: inherit;
   }
 
   /* =========================
@@ -52,9 +40,7 @@
   ========================== */
 
   .site-header {
-    width: 100%;
     padding: 100px 25px 50px;
-    text-align: center;
   }
 
   /* =========================
@@ -233,10 +219,7 @@
 
 <header class="site-header">
 
-<div
-  id="site-header-container"
-  data-subtitle="Caffetteria · Bibite · Aperitivi">
-</div>
+<div id="site-header-container"></div>
 
 <script src="components/site-header/site-header.js"></script>
 

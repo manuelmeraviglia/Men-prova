@@ -17,17 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const header = template.content.firstElementChild;
       if (!header) return;
 
-      const subtitleElement = header.querySelector(".site-header__subtitle");
-      const subtitle = headerContainer.dataset.subtitle || "";
-
-      if (subtitleElement) {
-        if (subtitle) {
-          subtitleElement.textContent = subtitle;
-        } else {
-          subtitleElement.remove();
-        }
-      }
-
       headerContainer.replaceWith(header);
     })
     .catch((error) => {

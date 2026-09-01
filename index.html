@@ -372,26 +372,6 @@
 
     /* =========================
 
-       LOGO INSTAGRAM
-
-    ========================= */
-
-    .instagram-footer-logo {
-
-      width: 38px;
-
-      height: 38px;
-
-      object-fit: contain;
-
-      display: block;
-
-      flex-shrink: 0;
-
-    }
-
-    /* =========================
-
        SCROLL INDICATOR
 
     ========================= */
@@ -473,14 +453,6 @@
       .gallery-link {
 
         font-size: 10px;
-
-      }
-
-      .instagram-footer-logo {
-
-        width: 34px;
-
-        height: 34px;
 
       }
 
@@ -745,118 +717,6 @@
       showSlide(currentIndex + 1);
 
     }, 4000);
-
-    /* =========================
-
-       LOGO INSTAGRAM NEL FOOTER
-
-    ========================= */
-
-    function aggiungiLogoInstagram() {
-
-      const footer = document.getElementById(
-
-        'footer-container'
-
-      );
-
-      if (!footer) {
-
-        return;
-
-      }
-
-      const elementi = footer.querySelectorAll('a');
-
-      elementi.forEach((elemento) => {
-
-        if (
-
-          elemento.textContent.trim() === 'Instagram' &&
-
-          !elemento.querySelector(
-
-            '.instagram-footer-logo'
-
-          )
-
-        ) {
-
-          elemento.style.display = 'inline-flex';
-
-          elemento.style.alignItems = 'center';
-
-          elemento.style.gap = '12px';
-
-          const logo = document.createElement('img');
-
-          /* PERCORSO CORRETTO */
-
-          logo.src = 'assets/IMG_3828.webp';
-
-          logo.alt = 'Logo Instagram';
-
-          logo.className =
-
-            'instagram-footer-logo';
-
-          elemento.appendChild(logo);
-
-        }
-
-      });
-
-    }
-
-    /* =========================
-
-       ATTESA CARICAMENTO FOOTER
-
-    ========================= */
-
-    const footerContainer = document.getElementById(
-
-      'footer-container'
-
-    );
-
-    const footerObserver = new MutationObserver(() => {
-
-      aggiungiLogoInstagram();
-
-      const logoInstagram =
-
-        document.querySelector(
-
-          '#footer-container .instagram-footer-logo'
-
-        );
-
-      if (logoInstagram) {
-
-        footerObserver.disconnect();
-
-      }
-
-    });
-
-    footerObserver.observe(
-
-      footerContainer,
-
-      {
-
-        childList: true,
-
-        subtree: true
-
-      }
-
-    );
-
-    /* Tentativo immediato */
-
-    aggiungiLogoInstagram();
 
   </script>
 

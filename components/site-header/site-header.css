@@ -23,8 +23,11 @@
   }
 
   .site-header__subtitle {
-    font-size: 13px;
+    font-size: 22px;
     letter-spacing: 3px;
     margin-bottom: 22px;
+    max-width: min(300px, 78vw);
+    margin-left: auto;
+    margin-right: auto;
   }
 }

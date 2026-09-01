@@ -43,7 +43,7 @@
   transition: 0.25s ease;
 }
 
-.nav:hover .navigation {
+.nav.open .navigation {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);

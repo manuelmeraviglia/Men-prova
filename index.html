@@ -147,7 +147,53 @@
       font-weight: 400;
       font-size: 16px;
       line-height: 1.6;
-      opacity: 0.9;
+    }
+
+    /* =========================
+       STORY ANIMATIONS
+    ========================= */
+
+    @keyframes pop-word {
+      to {
+        opacity: 1;
+        transform: rotateX(0deg);
+      }
+    }
+
+    @keyframes fade-chunk {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .story-title {
+      perspective: 600px;
+    }
+
+    .story-word {
+      display: inline-block;
+      opacity: 0;
+      transform: rotateX(100deg);
+      transform-origin: 50% 100%;
+    }
+
+    .story-title.animate .story-word {
+      animation: pop-word 1.2s cubic-bezier(0.14, 1.23, 0.33, 1.16) forwards;
+    }
+
+    .story-description {
+      opacity: 1;
+    }
+
+    .story-chunk {
+      display: block;
+      opacity: 0;
+      transform: translateY(14px);
+    }
+
+    .story-description.animate .story-chunk {
+      animation: fade-chunk 1.2s ease forwards;
     }
 
     /* =========================
@@ -451,25 +497,46 @@
 
     /* =========================
 
-       SCROLL REVEAL
+       STORY REVEAL
 
     ========================= */
 
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
+    (function () {
+      const title = document.querySelector('.story-title');
+      const desc = document.querySelector('.story-description');
 
-    document.querySelectorAll('.reveal').forEach((el) => {
-      revealObserver.observe(el);
-    });
+      // Wrap each title word in an animated span
+      const words = title.textContent.trim().split(/\s+/);
+      title.innerHTML = words
+        .map((w, i) =>
+          `<span class="story-word" style="animation-delay:${(i * 0.06).toFixed(2)}s">${w}</span>`
+        )
+        .join(' ');
+
+      // Split description on paragraph breaks and wrap each in an animated span
+      const paragraphs = desc.innerHTML.split(/<br\s*\/?>\s*<br\s*\/?>/i);
+      const titleDelay = words.length * 0.06 + 0.1;
+      desc.innerHTML = paragraphs
+        .map((p, i) =>
+          `<span class="story-chunk" style="animation-delay:${(titleDelay + i * 0.2).toFixed(2)}s">${p.trim()}</span>`
+        )
+        .join('<br><br>');
+
+      const storyObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate');
+              storyObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.25 }
+      );
+
+      storyObserver.observe(title);
+      storyObserver.observe(desc);
+    })();
 
   </script>
 

@@ -18,6 +18,8 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- Componenti -->
+
   <link rel="stylesheet" href="components/navigation/navigation.css">
 
   <link rel="stylesheet" href="components/site-header/site-header.css">
@@ -194,7 +196,11 @@
 
       cursor: pointer;
 
-      transition: background 0.2s ease, transform 0.2s ease;
+      transition:
+
+        background 0.2s ease,
+
+        transform 0.2s ease;
 
       z-index: 2;
 
@@ -244,7 +250,7 @@
 
     /* =========================
 
-       MENU BUTTON
+       PULSANTE MENU
 
     ========================= */
 
@@ -270,7 +276,11 @@
 
       font-size: 20px;
 
-      transition: background 0.2s ease, transform 0.2s ease;
+      transition:
+
+        background 0.2s ease,
+
+        transform 0.2s ease;
 
     }
 
@@ -284,7 +294,7 @@
 
     /* =========================
 
-       GALLERY BUTTON
+       PULSANTE GALLERY
 
     ========================= */
 
@@ -310,7 +320,11 @@
 
       font-size: 10px;
 
-      transition: background 0.2s ease, transform 0.2s ease;
+      transition:
+
+        background 0.2s ease,
+
+        transform 0.2s ease;
 
     }
 
@@ -358,23 +372,9 @@
 
     /* =========================
 
-       INSTAGRAM FOOTER
+       LOGO INSTAGRAM
 
     ========================= */
-
-    .instagram-footer-link {
-
-      display: inline-flex !important;
-
-      align-items: center;
-
-      justify-content: center;
-
-      gap: 12px;
-
-      text-decoration: none;
-
-    }
 
     .instagram-footer-logo {
 
@@ -385,6 +385,8 @@
       object-fit: contain;
 
       display: block;
+
+      flex-shrink: 0;
 
     }
 
@@ -496,6 +498,8 @@
 
 <body>
 
+  <!-- NAVIGAZIONE -->
+
   <div id="nav-container"></div>
 
   <script src="components/navigation/navigation.js"></script>
@@ -510,6 +514,8 @@
 
     <div class="hero-content">
 
+      <!-- HEADER -->
+
       <div
 
         id="site-header-container"
@@ -522,7 +528,11 @@
 
       <!-- UNICO PULSANTE MENU -->
 
-      <a class="menu-link" href="menu.html">
+      <a
+
+        class="menu-link"
+
+        href="menu.html">
 
         Scopri il nostro menu
 
@@ -582,7 +592,11 @@
 
       </div>
 
-      <!-- LA NOSTRA STORIA -->
+      <!-- =========================
+
+           LA NOSTRA STORIA
+
+      ========================== -->
 
       <h2 class="story-title">
 
@@ -592,37 +606,51 @@
 
       <p class="story-description">
 
-        Il Bar Centrale Illy è molto più di un semplice cafè: è un pezzo di storia di Lainate.
+        Il Bar Centrale Illy è molto più di un semplice cafè:
 
-        Fondato nel 1958, il nostro locale racchiude oltre sessant'anni di passione, ricordi e
+        è un pezzo di storia di Lainate.
 
-        accoglienza a gestione familiare.
+        Fondato nel 1958, il nostro locale racchiude oltre sessant'anni
 
-        <br><br>
-
-        Nati originariamente come storica paninoteca e pub di riferimento per il territorio, negli
-
-        anni ci siamo evoluti con costante dedizione per diventare una vera e propria caffetteria
-
-        d'eccellenza. Oggi la tradizione continua con la terza generazione: accanto a Marina, per
-
-        tutti semplicemente Lella, anima e volto storico del bar, c'è il figlio Manuel, che porta
-
-        avanti con entusiasmo e visione il patrimonio di famiglia.
+        di passione, ricordi e accoglienza a gestione familiare.
 
         <br><br>
 
-        Dalla ricca colazione con l'aroma inconfondibile del caffè Illy alla pausa pranzo, fino al
+        Nati originariamente come storica paninoteca e pub di riferimento
 
-        rito dell'aperitivo, il Bar Centrale è da sempre il punto di ritrovo ideale per generazioni
+        per il territorio, negli anni ci siamo evoluti con costante dedizione
 
-        di lainatesi e per chiunque desideri sentirsi a casa.
+        per diventare una vera e propria caffetteria d'eccellenza.
+
+        Oggi la tradizione continua con la terza generazione:
+
+        accanto a Marina, per tutti semplicemente Lella,
+
+        anima e volto storico del bar,
+
+        c'è il figlio Manuel, che porta avanti con entusiasmo e visione
+
+        il patrimonio di famiglia.
+
+        <br><br>
+
+        Dalla ricca colazione con l'aroma inconfondibile del caffè Illy
+
+        alla pausa pranzo, fino al rito dell'aperitivo,
+
+        il Bar Centrale è da sempre il punto di ritrovo ideale
+
+        per generazioni di lainatesi e per chiunque desideri sentirsi a casa.
 
       </p>
 
       <!-- PULSANTE GALLERY -->
 
-      <a class="gallery-link" href="gallery.html">
+      <a
+
+        class="gallery-link"
+
+        href="gallery.html">
 
         Scopri la gallery
 
@@ -636,7 +664,11 @@
 
   </main>
 
-  <!-- FOOTER -->
+  <!-- =========================
+
+       FOOTER
+
+  ========================== -->
 
   <div id="footer-container"></div>
 
@@ -658,13 +690,17 @@
 
     );
 
-    const prevButton =
+    const prevButton = document.querySelector(
 
-      document.querySelector('.slider-btn.prev');
+      '.slider-btn.prev'
 
-    const nextButton =
+    );
 
-      document.querySelector('.slider-btn.next');
+    const nextButton = document.querySelector(
+
+      '.slider-btn.next'
+
+    );
 
     let currentIndex = 0;
 
@@ -718,11 +754,19 @@
 
     function aggiungiLogoInstagram() {
 
-      const elementi = document.querySelectorAll(
+      const footer = document.getElementById(
 
-        '#footer-container a, #footer-container div, #footer-container span, #footer-container p'
+        'footer-container'
 
       );
+
+      if (!footer) {
+
+        return;
+
+      }
+
+      const elementi = footer.querySelectorAll('a');
 
       elementi.forEach((elemento) => {
 
@@ -730,23 +774,31 @@
 
           elemento.textContent.trim() === 'Instagram' &&
 
-          !elemento.querySelector('.instagram-footer-logo')
+          !elemento.querySelector(
+
+            '.instagram-footer-logo'
+
+          )
 
         ) {
 
-          elemento.classList.add(
+          elemento.style.display = 'inline-flex';
 
-            'instagram-footer-link'
+          elemento.style.alignItems = 'center';
 
-          );
+          elemento.style.gap = '12px';
 
           const logo = document.createElement('img');
 
-          logo.src = 'assets/instagram-logo.webp';
+          /* PERCORSO CORRETTO */
 
-          logo.alt = 'Instagram';
+          logo.src = 'assets/IMG_3828.webp';
 
-          logo.className = 'instagram-footer-logo';
+          logo.alt = 'Logo Instagram';
+
+          logo.className =
+
+            'instagram-footer-logo';
 
           elemento.appendChild(logo);
 
@@ -756,7 +808,17 @@
 
     }
 
-    /* OSSERVA IL CARICAMENTO DEL FOOTER */
+    /* =========================
+
+       ATTESA CARICAMENTO FOOTER
+
+    ========================= */
+
+    const footerContainer = document.getElementById(
+
+      'footer-container'
+
+    );
 
     const footerObserver = new MutationObserver(() => {
 
@@ -780,7 +842,7 @@
 
     footerObserver.observe(
 
-      document.getElementById('footer-container'),
+      footerContainer,
 
       {
 
@@ -792,7 +854,7 @@
 
     );
 
-    /* CONTROLLO IMMEDIATO */
+    /* Tentativo immediato */
 
     aggiungiLogoInstagram();
 

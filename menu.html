@@ -4,11 +4,9 @@
 
 <title>Bar Centrale | Menu</title>
 
-<!-- Fonts -->
+<!-- Global styles -->
 
-<link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" >
+<link rel="stylesheet" href="global_styles.css">
 
 <!-- Components -->
 
@@ -35,37 +33,16 @@
     min-height: 100vh;
     background: #f8f4ef;
     color: #171717;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
-  }
-
-  /* Garantisce che i componenti ereditino la tipografia globale */
-  button,
-  input,
-  textarea,
-  select {
-    font: inherit;
   }
 
   /* =========================
-     SITE HEADER
+     PAGE
   ========================== */
 
-  .site-header {
-    width: 100%;
-    padding: 100px 25px 50px;
-    text-align: center;
-  }
-
-  /* =========================
-     MENU
-  ========================== */
-
-  .menu-container {
-    width: 92%;
+  .page {
     max-width: 900px;
     margin: 0 auto;
-    padding: 10px 20px 70px;
+    padding: 130px 25px 80px;
   }
 
   /* =========================
@@ -176,13 +153,9 @@
 
   @media (max-width: 700px) {
 
-    .site-header {
-      padding: 70px 22px 35px;
-    }
-
-    .menu-container {
+    .page {
       width: 100%;
-      padding: 35px 22px 50px;
+      padding: 110px 22px 50px;
     }
 
     .accordion summary {
@@ -231,16 +204,11 @@
 
 <!-- ========================= SITE HEADER ========================== -->
 
-<header class="site-header">
+<main class="page">
 
-<div
-  id="site-header-container"
-  data-subtitle="Caffetteria · Bibite · Aperitivi">
-</div>
+<div id="site-header-container"></div>
 
 <script src="components/site-header/site-header.js"></script>
-
-  <main class="menu-container">
 
     <!-- =========================
          CAFFETTERIA
@@ -576,6 +544,13 @@
               <span class="menu-item-name">Cubalibre</span>
             </div>
 
+          </div>
+
+
+          <!-- COLONNA DESTRA -->
+
+          <div>
+
             <div class="menu-item">
               <span class="menu-item-name">Jager-Bomb</span>
             </div>
@@ -622,8 +597,30 @@
 
           </div>
 
+        </div>
 
-          <!-- COLONNA DESTRA -->
+        <p class="section-note" style="font-size: 14px; font-style: italic;">Aperitivo con cassetta €5,00 (max 4 persone)</p>
+
+      </div>
+
+    </details>
+
+
+    <!-- =========================
+         LIQUORI E DISTILLATI
+    ========================== -->
+
+    <details class="accordion">
+
+      <summary>
+        Liquori e Distillati
+      </summary>
+
+      <div class="accordion-content">
+
+        <div class="two-columns">
+
+          <!-- COLONNA SINISTRA -->
 
           <div>
 
@@ -663,6 +660,13 @@
               <span class="menu-item-name">Sambuca</span>
             </div>
 
+          </div>
+
+
+          <!-- COLONNA DESTRA -->
+
+          <div>
+
             <div class="menu-item">
               <span class="menu-item-name">Vecchia Romagna</span>
             </div>
@@ -695,6 +699,33 @@
               <span class="menu-item-name">Rum Scuro</span>
             </div>
 
+          </div>
+
+        </div>
+
+      </div>
+
+    </details>
+
+
+    <!-- =========================
+         BIRRE
+    ========================== -->
+
+    <details class="accordion">
+
+      <summary>
+        Birre
+      </summary>
+
+      <div class="accordion-content">
+
+        <div class="two-columns">
+
+          <!-- COLONNA SINISTRA -->
+
+          <div>
+
             <div class="menu-item">
               <span class="menu-item-name">Birra Piccola</span>
             </div>
@@ -710,6 +741,13 @@
             <div class="menu-item">
               <span class="menu-item-name">Ceres</span>
             </div>
+
+          </div>
+
+
+          <!-- COLONNA DESTRA -->
+
+          <div>
 
             <div class="menu-item">
               <span class="menu-item-name">Super Tennent’s</span>
@@ -730,8 +768,6 @@
           </div>
 
         </div>
-
-        <p class="section-note" style="font-size: 14px; font-style: italic;">Aperitivo con cassetta €5,00 (max 4 persone)</p>
 
       </div>
 

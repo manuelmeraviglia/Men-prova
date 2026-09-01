@@ -5,6 +5,7 @@
 footer {
   text-align: center;
   padding-top: 25px;
+  padding-bottom: 30px;
   border-top: 1px solid rgba(0,0,0,0.15);
 }
 
@@ -36,4 +37,13 @@ footer {
   margin-top: 8px;
   font-size: 12px;
   opacity: 0.65;
+}
+
+.instagram-footer-logo {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  display: inline-block;
+  flex-shrink: 0;
+  pointer-events: none;
 }

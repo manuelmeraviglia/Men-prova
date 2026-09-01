@@ -61,6 +61,34 @@
   font-weight: 600;
 }
 
+/* -------------------------
+   LOCATION REVEAL ANIMATIONS
+------------------------ */
+
+.location-section h2 {
+  perspective: 600px;
+}
+
+.location-word {
+  display: inline-block;
+  opacity: 0;
+  transform: rotateX(100deg);
+  transform-origin: 50% 100%;
+}
+
+.location-section.animate h2 .location-word {
+  animation: pop-word 1.2s cubic-bezier(0.14, 1.23, 0.33, 1.16) forwards;
+}
+
+.location-card {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.location-section.animate .location-card {
+  animation: fade-chunk 1.2s ease forwards;
+}
+
 @media (max-width: 700px) {
   .location-section {
     margin-top: 40px;

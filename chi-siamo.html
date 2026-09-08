@@ -1,97 +1,88 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <html lang="it">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Bar Centrale | Chi Siamo</title>
+    <title>Bar Centrale | Chi Siamo</title>
 
-  <link rel="stylesheet" href="global_styles.css">
+    <link rel="stylesheet" href="global_styles.css" />
 
-  <link rel="stylesheet" href="components/navigation/navigation.css">
-  <link rel="stylesheet" href="components/site-header/site-header.css">
-  <link rel="stylesheet" href="components/footer/footer.css">
-  <link rel="stylesheet" href="components/location-card/location-card.css">
+    <link rel="stylesheet" href="components/navigation/navigation.css" />
+    <link rel="stylesheet" href="components/site-header/site-header.css" />
+    <link rel="stylesheet" href="components/footer/footer.css" />
+    <link rel="stylesheet" href="components/location-card/location-card.css" />
 
-  <style>
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      min-height: 100vh;
-      background: #f8f4ef;
-      color: #171717;
-    }
-
-    .page {
-      max-width: 750px;
-      margin: auto;
-      padding: 130px 25px 80px;
-      text-align: center;
-    }
-
-    h1 {
-      margin-bottom: 25px;
-    }
-
-    .page p {
-      font-family: "Playfair Display", serif;
-      font-size: 22px;
-      line-height: 1.7;
-    }
-
-    @media (max-width: 700px) {
-
-      .nav {
-        padding: 20px;
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
       }
 
-      .navigation {
-        top: 78px;
-        right: 20px;
+      body {
+        min-height: 100vh;
+        background: #f8f4ef;
+        color: #171717;
       }
 
       .page {
-        padding-top: 110px;
+        max-width: 750px;
+        margin: auto;
+        padding: 130px 25px 80px;
+        text-align: center;
+      }
+
+      h1 {
+        margin-bottom: 25px;
       }
 
       .page p {
-        font-size: 19px;
+        font-family: "Playfair Display", serif;
+        font-size: 22px;
+        line-height: 1.7;
       }
 
-    }
+      @media (max-width: 700px) {
+        .nav {
+          padding: 20px;
+        }
 
-  </style>
+        .navigation {
+          top: 78px;
+          right: 20px;
+        }
 
-</head>
+        .page {
+          padding-top: 110px;
+        }
 
-<body>
+        .page p {
+          font-size: 19px;
+        }
+      }
+    </style>
+  </head>
 
-  <div id="nav-container"></div>
-  <script src="components/navigation/navigation.js"></script>
+  <body>
+    <div id="nav-container"></div>
+    <script src="components/navigation/navigation.js"></script>
 
-  <main class="page">
+    <main class="page">
+      <div id="site-header-container"></div>
+      <script src="components/site-header/site-header.js"></script>
 
-<div id="site-header-container"></div>
-<script src="components/site-header/site-header.js"></script>
+      <p>
+        Bar Centrale e' il posto migliore per gustarsi un buon caffe', mangiare
+        una fetta di torta e farsi una sedga.
+      </p>
 
-<p>
-  Bar Centrale e' il posto migliore per gustarsi un buon caffe',
-  mangiare una fetta di torta e farsi una sedga.
-</p>
+      <div id="location-card-container"></div>
+    </main>
 
-<div id="location-card-container"></div>
-
-  </main>
-
-  <div id="footer-container"></div>
-  <script src="components/footer/footer.js"></script>
-  <script src="components/location-card/location-card.js"></script>
-
-</body>
+    <div id="footer-container"></div>
+    <script src="components/footer/footer.js"></script>
+    <script src="components/location-card/location-card.js"></script>
+  </body>
 </html>

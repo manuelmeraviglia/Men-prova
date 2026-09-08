@@ -53,19 +53,15 @@ h1 {
   box-shadow: 0 20px 50px rgba(23, 23, 23, 0.12);
   background: #efe6dc;
   line-height: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 520px;
 }
 
 .slide {
   display: none;
   width: 100%;
-  height: auto;
-  max-height: 520px;
-  object-fit: contain;
-  background: #efe6dc;
-  margin: 0 auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .slide.active {
@@ -118,8 +114,8 @@ h1 {
   .image-slider {
     width: 100%;
   }
-  .slide {
-    max-height: 280px;
+  .slider-track {
+    height: 280px;
   }
   .slider-btn {
     width: 36px;

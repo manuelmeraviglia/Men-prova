@@ -1,571 +1,448 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <html lang="it">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta charset="UTF-8">
+    <title>Bar Centrale | Piazza Angelo Borroni</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Global styles -->
 
-  <title>Bar Centrale | Piazza Angelo Borroni</title>
+    <link rel="stylesheet" href="global_styles.css" />
 
-  <!-- Global styles -->
+    <!-- Componenti -->
 
-  <link rel="stylesheet" href="global_styles.css">
+    <link rel="stylesheet" href="components/navigation/navigation.css" />
 
-  <!-- Componenti -->
+    <link rel="stylesheet" href="components/site-header/site-header.css" />
 
-  <link rel="stylesheet" href="components/navigation/navigation.css">
+    <link rel="stylesheet" href="components/footer/footer.css" />
 
-  <link rel="stylesheet" href="components/site-header/site-header.css">
+    <link rel="stylesheet" href="components/location-card/location-card.css" />
 
-  <link rel="stylesheet" href="components/footer/footer.css">
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-  <link rel="stylesheet" href="components/location-card/location-card.css">
+      html {
+        scroll-behavior: smooth;
+      }
 
-  <style>
+      body {
+        min-height: 100vh;
+        background: #f8f4ef;
+        color: #171717;
+      }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      min-height: 100vh;
-      background: #f8f4ef;
-      color: #171717;
-    }
-
-    /* =========================
+      /* =========================
        HERO
     ========================= */
 
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 130px 25px 80px;
-    }
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 130px 25px 80px;
+      }
 
-    .hero-content {
-      width: 100%;
-      max-width: 800px;
-      text-align: center;
-    }
+      .hero-content {
+        width: 100%;
+        max-width: 800px;
+        text-align: center;
+      }
 
-    /* =========================
+      /* =========================
        IMAGE SLIDER
     ========================= */
 
-    .image-slider {
-      margin: 38px auto 52px;
-    }
+      .image-slider {
+        margin: 38px auto 52px;
+      }
 
-    .slide {
-      max-width: 100%;
-    }
+      .slide {
+        max-width: 100%;
+      }
 
-    /* =========================
+      /* =========================
        LOCATION
     ========================= */
 
-    .location {
-      margin-top: 45px;
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      opacity: 0.6;
-    }
+      .location {
+        margin-top: 45px;
+        font-size: 11px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        opacity: 0.6;
+      }
 
-    /* =========================
+      /* =========================
        PULSANTE MENU
     ========================= */
 
-    .menu-link {
-      display: inline-flex;
-      align-items: center;
-      margin-top: 30px;
-      padding: 12px 22px;
-      border: 1px solid rgba(23, 23, 23, 0.25);
-      border-radius: 999px;
-      box-shadow: 0 4px 14px rgba(23, 23, 23, 0.5);
-      color: #171717;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 20px;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
+      .menu-link {
+        display: inline-flex;
+        align-items: center;
+        margin-top: 30px;
+        padding: 12px 22px;
+        border: 1px solid rgba(23, 23, 23, 0.25);
+        border-radius: 999px;
+        box-shadow: 0 4px 14px rgba(23, 23, 23, 0.5);
+        color: #171717;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 20px;
+        transition:
+          background 0.2s ease,
+          transform 0.2s ease;
+      }
 
-    .menu-link:hover {
-      background: rgba(23, 23, 23, 0.04);
-      transform: translateY(-1px);
-    }
+      .menu-link:hover {
+        background: rgba(23, 23, 23, 0.04);
+        transform: translateY(-1px);
+      }
 
-    /* =========================
+      /* =========================
        PULSANTE GALLERY
     ========================= */
 
-    .gallery-link {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 12px 22px;
-      border: 1px solid rgba(23, 23, 23, 0.25);
-      border-radius: 999px;
-      box-shadow: 0 4px 14px rgba(23, 23, 23, 0.5);
-      color: #171717;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 10px;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
+      .gallery-link {
+        display: inline-block;
+        margin-top: 30px;
+        padding: 12px 22px;
+        border: 1px solid rgba(23, 23, 23, 0.25);
+        border-radius: 999px;
+        box-shadow: 0 4px 14px rgba(23, 23, 23, 0.5);
+        color: #171717;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 10px;
+        transition:
+          background 0.2s ease,
+          transform 0.2s ease;
+      }
 
-    .gallery-link:hover {
-      background: rgba(23, 23, 23, 0.04);
-      transform: translateY(-1px);
-    }
+      .gallery-link:hover {
+        background: rgba(23, 23, 23, 0.04);
+        transform: translateY(-1px);
+      }
 
-    /* =========================
+      /* =========================
        STORY SECTION
     ========================= */
 
-    .story-title {
-      font-family: "Playfair Display", serif;
-      font-size: 28px;
-      font-weight: 400;
-      margin-bottom: 16px;
-      letter-spacing: 1px;
-    }
+      .story-title {
+        font-family: "Playfair Display", serif;
+        font-size: 28px;
+        font-weight: 400;
+        margin-bottom: 16px;
+        letter-spacing: 1px;
+      }
 
-    .story-description {
-      font-family: "Playfair Display", serif;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 1.6;
-    }
+      .story-description {
+        font-family: "Playfair Display", serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.6;
+      }
 
-    /* =========================
+      /* =========================
        STORY ANIMATIONS
     ========================= */
 
-    @keyframes pop-word {
-      to {
-        opacity: 1;
-        transform: rotateX(0deg);
+      @keyframes pop-word {
+        to {
+          opacity: 1;
+          transform: rotateX(0deg);
+        }
       }
-    }
 
-    @keyframes fade-chunk {
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      @keyframes fade-chunk {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
-    }
 
-    .story-title {
-      perspective: 600px;
-    }
+      .story-title {
+        perspective: 600px;
+      }
 
-    .story-word {
-      display: inline-block;
-      opacity: 0;
-      transform: rotateX(100deg);
-      transform-origin: 50% 100%;
-    }
+      .story-word {
+        display: inline-block;
+        opacity: 0;
+        transform: rotateX(100deg);
+        transform-origin: 50% 100%;
+      }
 
-    .story-title.animate .story-word {
-      animation: pop-word 1.2s cubic-bezier(0.14, 1.23, 0.33, 1.16) forwards;
-    }
+      .story-title.animate .story-word {
+        animation: pop-word 1.2s cubic-bezier(0.14, 1.23, 0.33, 1.16) forwards;
+      }
 
-    .story-description {
-      opacity: 1;
-    }
+      .story-description {
+        opacity: 1;
+      }
 
-    .story-chunk {
-      display: block;
-      opacity: 0;
-      transform: translateY(14px);
-    }
+      .story-chunk {
+        display: block;
+        opacity: 0;
+        transform: translateY(14px);
+      }
 
-    .story-description.animate .story-chunk {
-      animation: fade-chunk 1.2s ease forwards;
-    }
+      .story-description.animate .story-chunk {
+        animation: fade-chunk 1.2s ease forwards;
+      }
 
-    /* =========================
+      /* =========================
        SCROLL INDICATOR
     ========================= */
 
-    .scroll {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 10px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      opacity: 0.5;
-    }
+      .scroll {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 10px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        opacity: 0.5;
+      }
 
-    /* =========================
+      /* =========================
        MOBILE
     ========================= */
 
-    @media (max-width: 700px) {
-      .nav {
-        padding: 20px;
+      @media (max-width: 700px) {
+        .nav {
+          padding: 20px;
+        }
+        .navigation {
+          top: 78px;
+          right: 20px;
+        }
+        .hero {
+          padding: 110px 22px 50px;
+        }
+        .location {
+          font-size: 9px;
+          letter-spacing: 2px;
+        }
+        .story-title {
+          font-size: 24px;
+        }
+        .story-description {
+          font-size: 15px;
+        }
+        .menu-link {
+          font-size: 15px;
+        }
+        .gallery-link {
+          font-size: 10px;
+        }
+        .scroll {
+          display: none;
+        }
       }
-      .navigation {
-        top: 78px;
-        right: 20px;
-      }
-      .hero {
-        padding: 110px 22px 50px;
-      }
-      .location {
-        font-size: 9px;
-        letter-spacing: 2px;
-      }
-      .story-title {
-        font-size: 24px;
-      }
-      .story-description {
-        font-size: 15px;
-      }
-      .menu-link {
-        font-size: 15px;
-      }
-      .gallery-link {
-        font-size: 10px;
-      }
-      .scroll {
-        display: none;
-      }
-    }
+    </style>
+  </head>
 
-  </style>
+  <body>
+    <!-- NAVIGAZIONE -->
 
-</head>
+    <div id="nav-container"></div>
 
-<body>
+    <script src="components/navigation/navigation.js"></script>
 
-  <!-- NAVIGAZIONE -->
-
-  <div id="nav-container"></div>
-
-  <script src="components/navigation/navigation.js"></script>
-
-  <!-- =========================
+    <!-- =========================
 
        HERO
 
   ========================== -->
 
-  <main class="hero">
+    <main class="hero">
+      <div class="hero-content">
+        <!-- HEADER -->
 
-    <div class="hero-content">
+        <div id="site-header-container"></div>
 
-      <!-- HEADER -->
+        <script src="components/site-header/site-header.js"></script>
 
-      <div id="site-header-container"></div>
+        <!-- UNICO PULSANTE MENU -->
 
-      <script src="components/site-header/site-header.js"></script>
+        <a class="menu-link" href="menu.html">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 474 562"
+            aria-hidden="true"
+            style="
+              width: 2em;
+              height: 2em;
+              vertical-align: middle;
+              margin-right: 10px;
+              display: inline-block;
+            "
+          >
+            <rect
+              x="64"
+              y="63"
+              width="346"
+              height="450"
+              rx="18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="16"
+            />
+            <g
+              fill="none"
+              stroke="currentColor"
+              stroke-width="15"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M195 106 C210 122 178 127 193 149" />
+              <path d="M233 106 C248 122 216 127 231 149" />
+              <path d="M271 106 C286 122 254 127 269 149" />
+            </g>
+            <g
+              fill="none"
+              stroke="currentColor"
+              stroke-width="16"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <ellipse cx="231.5" cy="192.5" rx="65.5" ry="15.5" />
+              <path
+                d="M166 193 V222 C166 261 191 287 231 287 C271 287 297 261 297 222 V193"
+              />
+              <path
+                d="M299 211 C319 200 329 210 329 224 C329 241 314 255 291 262"
+              />
+            </g>
+            <g
+              fill="none"
+              stroke="currentColor"
+              stroke-width="16"
+              stroke-linecap="round"
+            >
+              <path d="M101 338 H131 M164 338 H373" />
+              <path d="M101 381 H131 M164 381 H373" />
+              <path d="M101 424 H131 M164 424 H373" />
+              <path d="M101 467 H131 M164 467 H373" />
+            </g></svg
+          >Scopri il nostro menù
+        </a>
 
-      <!-- UNICO PULSANTE MENU -->
+        <!-- SLIDER IMMAGINI -->
 
-      <a
+        <div id="image-slider-container"></div>
 
-        class="menu-link"
+        <script src="components/image-slider/image-slider.js"></script>
 
-        href="menu.html">
-
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 474 562"
-          aria-hidden="true"
-          style="width: 2em; height: 2em; vertical-align: middle; margin-right: 10px; display: inline-block;"
-        >
-          <rect x="64" y="63" width="346" height="450" rx="18" fill="none" stroke="currentColor" stroke-width="16" />
-          <g fill="none" stroke="currentColor" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M195 106 C210 122 178 127 193 149" />
-            <path d="M233 106 C248 122 216 127 231 149" />
-            <path d="M271 106 C286 122 254 127 269 149" />
-          </g>
-          <g fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-            <ellipse cx="231.5" cy="192.5" rx="65.5" ry="15.5" />
-            <path d="M166 193 V222 C166 261 191 287 231 287 C271 287 297 261 297 222 V193" />
-            <path d="M299 211 C319 200 329 210 329 224 C329 241 314 255 291 262" />
-          </g>
-          <g fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round">
-            <path d="M101 338 H131 M164 338 H373" />
-            <path d="M101 381 H131 M164 381 H373" />
-            <path d="M101 424 H131 M164 424 H373" />
-            <path d="M101 467 H131 M164 467 H373" />
-          </g>
-        </svg>Scopri il nostro menù
-
-      </a>
-
-      <!-- SLIDER IMMAGINI -->
-
-      <div
-
-        class="image-slider"
-
-        aria-label="Galleria immagini del bar">
-
-        <button
-
-          class="slider-btn prev"
-
-          type="button"
-
-          aria-label="Immagine precedente">
-
-          &#10094;
-
-        </button>
-
-        <div class="slider-track">
-
-          <img
-
-            class="slide active"
-
-            src="assets/landing_page_imgs/esterno_lato_strada.jpeg"
-
-            alt="Cortile esterno del bar">
-
-          <img
-
-            class="slide"
-
-            src="assets/landing_page_imgs/interno.jpeg"
-
-            alt="Interno del bar">
-
-        </div>
-
-        <button
-
-          class="slider-btn next"
-
-          type="button"
-
-          aria-label="Immagine successiva">
-
-          &#10095;
-
-        </button>
-
-      </div>
-
-      <!-- =========================
+        <!-- =========================
 
            LA NOSTRA STORIA
 
       ========================== -->
 
-      <h2 class="story-title">
+        <h2 class="story-title">La nostra storia</h2>
 
-        La nostra storia
+        <p class="story-description">
+          Il Bar Centrale Illy è molto più di un semplice cafè: è un pezzo di
+          storia di Lainate. Fondato nel 1958, il nostro locale racchiude oltre
+          sessant'anni di passione, ricordi e accoglienza a gestione familiare.
 
-      </h2>
+          <br /><br />
 
-      <p class="story-description">
+          Nati originariamente come storica paninoteca e pub di riferimento per
+          il territorio, negli anni ci siamo evoluti con costante dedizione per
+          diventare una vera e propria caffetteria d'eccellenza. Oggi la
+          tradizione continua con la terza generazione: accanto a Marina, per
+          tutti semplicemente Lella, anima e volto storico del bar, c'è il
+          figlio Manuel, che porta avanti con entusiasmo e visione il patrimonio
+          di famiglia.
 
-        Il Bar Centrale Illy è molto più di un semplice cafè:
+          <br /><br />
 
-        è un pezzo di storia di Lainate.
+          Dalla ricca colazione con l'aroma inconfondibile del caffè Illy alla
+          pausa pranzo, fino al rito dell'aperitivo, il Bar Centrale è da sempre
+          il punto di ritrovo ideale per generazioni di lainatesi e per chiunque
+          desideri sentirsi a casa.
+        </p>
 
-        Fondato nel 1958, il nostro locale racchiude oltre sessant'anni
+        <!-- PULSANTE GALLERY -->
 
-        di passione, ricordi e accoglienza a gestione familiare.
+        <a class="gallery-link" href="gallery.html"> Scopri la gallery </a>
 
-        <br><br>
+        <!-- LOCATION CARD -->
 
-        Nati originariamente come storica paninoteca e pub di riferimento
+        <div id="location-card-container"></div>
+      </div>
+    </main>
 
-        per il territorio, negli anni ci siamo evoluti con costante dedizione
-
-        per diventare una vera e propria caffetteria d'eccellenza.
-
-        Oggi la tradizione continua con la terza generazione:
-
-        accanto a Marina, per tutti semplicemente Lella,
-
-        anima e volto storico del bar,
-
-        c'è il figlio Manuel, che porta avanti con entusiasmo e visione
-
-        il patrimonio di famiglia.
-
-        <br><br>
-
-        Dalla ricca colazione con l'aroma inconfondibile del caffè Illy
-
-        alla pausa pranzo, fino al rito dell'aperitivo,
-
-        il Bar Centrale è da sempre il punto di ritrovo ideale
-
-        per generazioni di lainatesi e per chiunque desideri sentirsi a casa.
-
-      </p>
-
-      <!-- PULSANTE GALLERY -->
-
-      <a
-
-        class="gallery-link"
-
-        href="gallery.html">
-
-        Scopri la gallery
-
-      </a>
-
-      <!-- LOCATION CARD -->
-
-      <div id="location-card-container"></div>
-
-    </div>
-
-  </main>
-
-  <!-- =========================
+    <!-- =========================
 
        FOOTER
 
   ========================== -->
 
-  <div id="footer-container"></div>
+    <div id="footer-container"></div>
 
-  <script src="components/footer/footer.js"></script>
+    <script src="components/footer/footer.js"></script>
 
-  <script src="components/location-card/location-card.js"></script>
+    <script src="components/location-card/location-card.js"></script>
 
-  <script>
-
-    /* =========================
-
-       SLIDER
-
-    ========================= */
-
-    const slides = Array.from(
-
-      document.querySelectorAll('.slide')
-
-    );
-
-    const prevButton = document.querySelector(
-
-      '.slider-btn.prev'
-
-    );
-
-    const nextButton = document.querySelector(
-
-      '.slider-btn.next'
-
-    );
-
-    let currentIndex = 0;
-
-    function showSlide(index) {
-
-      currentIndex =
-
-        (index + slides.length) % slides.length;
-
-      slides.forEach((slide, i) => {
-
-        slide.classList.toggle(
-
-          'active',
-
-          i === currentIndex
-
-        );
-
-      });
-
-    }
-
-    prevButton.addEventListener(
-
-      'click',
-
-      () => showSlide(currentIndex - 1)
-
-    );
-
-    nextButton.addEventListener(
-
-      'click',
-
-      () => showSlide(currentIndex + 1)
-
-    );
-
-    setInterval(() => {
-
-      showSlide(currentIndex + 1);
-
-    }, 4000);
-
-    /* =========================
+    <script>
+      /* =========================
 
        STORY REVEAL
 
     ========================= */
 
-    (function () {
-      const title = document.querySelector('.story-title');
-      const desc = document.querySelector('.story-description');
+      (function () {
+        const title = document.querySelector(".story-title");
+        const desc = document.querySelector(".story-description");
 
-      // Wrap each title word in an animated span
-      const words = title.textContent.trim().split(/\s+/);
-      title.innerHTML = words
-        .map((w, i) =>
-          `<span class="story-word" style="animation-delay:${(i * 0.06).toFixed(2)}s">${w}</span>`
-        )
-        .join(' ');
+        // Wrap each title word in an animated span
+        const words = title.textContent.trim().split(/\s+/);
+        title.innerHTML = words
+          .map(
+            (w, i) =>
+              `<span class="story-word" style="animation-delay:${(i * 0.06).toFixed(2)}s">${w}</span>`,
+          )
+          .join(" ");
 
-      // Split description on paragraph breaks and wrap each in an animated span
-      const paragraphs = desc.innerHTML.split(/<br\s*\/?>\s*<br\s*\/?>/i);
-      const titleDelay = words.length * 0.06 + 0.1;
-      desc.innerHTML = paragraphs
-        .map((p, i) =>
-          `<span class="story-chunk" style="animation-delay:${(titleDelay + i * 0.2).toFixed(2)}s">${p.trim()}</span>`
-        )
-        .join('<br><br>');
+        // Split description on paragraph breaks and wrap each in an animated span
+        const paragraphs = desc.innerHTML.split(/<br\s*\/?>\s*<br\s*\/?>/i);
+        const titleDelay = words.length * 0.06 + 0.1;
+        desc.innerHTML = paragraphs
+          .map(
+            (p, i) =>
+              `<span class="story-chunk" style="animation-delay:${(titleDelay + i * 0.2).toFixed(2)}s">${p.trim()}</span>`,
+          )
+          .join("<br><br>");
 
-      const storyObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('animate');
-              storyObserver.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.25 }
-      );
+        const storyObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("animate");
+                storyObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.25 },
+        );
 
-      storyObserver.observe(title);
-      storyObserver.observe(desc);
-    })();
-
-  </script>
-
-</body>
-
+        storyObserver.observe(title);
+        storyObserver.observe(desc);
+      })();
+    </script>
+  </body>
 </html>

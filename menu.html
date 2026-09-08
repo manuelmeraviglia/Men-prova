@@ -1,903 +1,817 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html lang="it"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Bar Centrale | Menu</title>
+    <title>Bar Centrale | Menu</title>
 
-<!-- Global styles -->
+    <!-- Global styles -->
 
-<link rel="stylesheet" href="global_styles.css">
+    <link rel="stylesheet" href="global_styles.css" />
 
-<!-- Components -->
+    <!-- Components -->
 
-<link rel="stylesheet" href="components/navigation/navigation.css"> <link rel="stylesheet" href="components/site-header/site-header.css"> <link rel="stylesheet" href="components/footer/footer.css">
+    <link rel="stylesheet" href="components/navigation/navigation.css" />
+    <link rel="stylesheet" href="components/site-header/site-header.css" />
+    <link rel="stylesheet" href="components/footer/footer.css" />
 
-<style>
-  /* =========================
+    <style>
+      /* =========================
      RESET & GLOBAL
   ========================== */
 
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-  html {
-    scroll-behavior: smooth;
-  }
+      html {
+        scroll-behavior: smooth;
+      }
 
-  body {
-    min-height: 100vh;
-    background: #f8f4ef;
-    color: #171717;
-  }
+      body {
+        min-height: 100vh;
+        background: #f8f4ef;
+        color: #171717;
+      }
 
-  /* =========================
+      /* =========================
      PAGE
   ========================== */
 
-  .page {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 130px 25px 80px;
-  }
+      .page {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 130px 25px 80px;
+      }
 
-  /* =========================
+      /* =========================
      SEZIONI A TENDINA
   ========================== */
 
-  .accordion {
-    margin-bottom: 22px;
-    border-top: 1px solid rgba(0, 0, 0, 0.18);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.18);
-  }
+      .accordion {
+        margin-bottom: 22px;
+        border-top: 1px solid rgba(0, 0, 0, 0.18);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+      }
 
-  .accordion summary {
-    list-style: none;
-    cursor: pointer;
+      .accordion summary {
+        list-style: none;
+        cursor: pointer;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-    padding: 25px 5px;
+        padding: 25px 5px;
 
-    font-family: "Playfair Display", serif;
-    font-size: 32px;
-    font-weight: 400;
-    letter-spacing: 4px;
-    text-transform: uppercase;
+        font-family: "Playfair Display", serif;
+        font-size: 32px;
+        font-weight: 400;
+        letter-spacing: 4px;
+        text-transform: uppercase;
 
-    user-select: none;
-  }
+        user-select: none;
+      }
 
-  .accordion summary::-webkit-details-marker {
-    display: none;
-  }
+      .accordion summary::-webkit-details-marker {
+        display: none;
+      }
 
-  .accordion summary::after {
-    content: "+";
-    font-family: "Montserrat", sans-serif;
-    font-size: 28px;
-    font-weight: 300;
-    transition: transform 0.3s ease;
-  }
+      .accordion summary::after {
+        content: "+";
+        font-family: "Montserrat", sans-serif;
+        font-size: 28px;
+        font-weight: 300;
+        transition: transform 0.3s ease;
+      }
 
-  .accordion[open] summary::after {
-    content: "−";
-  }
+      .accordion[open] summary::after {
+        content: "−";
+      }
 
-  .accordion-content {
-    padding: 5px 5px 35px;
-    text-align: left;
-  }
+      .accordion-content {
+        padding: 5px 5px 35px;
+        text-align: left;
+      }
 
-  /* =========================
+      /* =========================
      VOCI MENU
   ========================== */
 
-  .two-columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 55px;
-    align-items: start;
-    justify-items: stretch;
-  }
+      .two-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 55px;
+        align-items: start;
+        justify-items: stretch;
+      }
 
-  .two-columns > div {
-    text-align: left;
-  }
+      .two-columns > div {
+        text-align: left;
+      }
 
-  .menu-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 20px;
+      .menu-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 20px;
 
-    margin-bottom: 12px;
+        margin-bottom: 12px;
 
-    font-size: 14px;
-    text-transform: uppercase;
-    text-align: left;
-    width: 100%;
-  }
+        font-size: 14px;
+        text-transform: uppercase;
+        text-align: left;
+        width: 100%;
+      }
 
-  .menu-item-name {
-    flex: 1;
-    text-align: left;
-  }
+      .menu-item-name {
+        flex: 1;
+        text-align: left;
+      }
 
-  .price {
-    white-space: nowrap;
-    font-weight: 500;
-  }
+      .price {
+        white-space: nowrap;
+        font-weight: 500;
+      }
 
-  /* =========================
+      /* =========================
      NOTE & INFO
   ========================== */
 
-  .section-note {
-    margin-top: 15px;
-    font-size: 12px;
-    text-transform: uppercase;
-    text-align: center;
-    opacity: 0.75;
-  }
+      .section-note {
+        margin-top: 15px;
+        font-size: 12px;
+        text-transform: uppercase;
+        text-align: center;
+        opacity: 0.75;
+      }
 
-  /* =========================
+      /* =========================
      SMARTPHONE
   ========================== */
 
-  @media (max-width: 700px) {
+      @media (max-width: 700px) {
+        .page {
+          width: 100%;
+          padding: 110px 22px 50px;
+        }
 
-    .page {
-      width: 100%;
-      padding: 110px 22px 50px;
-    }
+        .accordion summary {
+          padding: 20px 3px;
+          font-size: 24px;
+          letter-spacing: 2px;
+        }
 
-    .accordion summary {
-      padding: 20px 3px;
-      font-size: 24px;
-      letter-spacing: 2px;
-    }
+        .accordion summary::after {
+          font-size: 24px;
+        }
 
-    .accordion summary::after {
-      font-size: 24px;
-    }
+        .accordion-content {
+          padding: 5px 3px 30px;
+        }
 
-    .accordion-content {
-      padding: 5px 3px 30px;
-    }
+        .two-columns {
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
 
-    .two-columns {
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
+        .menu-item {
+          margin-bottom: 13px;
+          font-size: 12px;
+        }
+      }
 
-    .menu-item {
-      margin-bottom: 13px;
-      font-size: 12px;
-    }
+      @media (max-width: 430px) {
+        .accordion summary {
+          font-size: 21px;
+          letter-spacing: 1.5px;
+        }
+      }
+    </style>
+  </head>
 
-  }
+  <body>
+    <!-- ========================= NAVIGATION ========================== -->
 
-  @media (max-width: 430px) {
+    <div id="nav-container"></div>
+    <script src="components/navigation/navigation.js"></script>
 
-    .accordion summary {
-      font-size: 21px;
-      letter-spacing: 1.5px;
-    }
+    <!-- ========================= SITE HEADER ========================== -->
 
-  }
-</style>
+    <main class="page">
+      <div id="site-header-container"></div>
 
-</head>
+      <script src="components/site-header/site-header.js"></script>
 
-<body>
-
-<!-- ========================= NAVIGATION ========================== -->
-
-<div id="nav-container"></div> <script src="components/navigation/navigation.js"></script>
-
-<!-- ========================= SITE HEADER ========================== -->
-
-<main class="page">
-
-<div id="site-header-container"></div>
-
-<script src="components/site-header/site-header.js"></script>
-
-    <!-- =========================
+      <!-- =========================
          CAFFETTERIA
     ========================== -->
 
-    <details class="accordion">
+      <details class="accordion">
+        <summary>Caffetteria</summary>
 
-      <summary>
-        Caffetteria
-      </summary>
+        <div class="accordion-content">
+          <div class="two-columns">
+            <!-- COLONNA SINISTRA -->
 
-      <div class="accordion-content">
+            <div>
+              <div class="menu-item">
+                <span class="menu-item-name">Brioche</span>
+                <span class="price">€1,50</span>
+              </div>
 
-        <div class="two-columns">
+              <div class="menu-item">
+                <span class="menu-item-name">Caffè</span>
+                <span class="price">€1,50</span>
+              </div>
 
-          <!-- COLONNA SINISTRA -->
+              <div class="menu-item">
+                <span class="menu-item-name">Caffè Americano</span>
+                <span class="price">€1,50</span>
+              </div>
 
-          <div>
+              <div class="menu-item">
+                <span class="menu-item-name">Caffè Macchiato</span>
+                <span class="price">€1,50</span>
+              </div>
 
-            <div class="menu-item">
-              <span class="menu-item-name">Brioche</span>
-              <span class="price">€1,50</span>
+              <div class="menu-item">
+                <span class="menu-item-name">Caffè Decaffeinato</span>
+                <span class="price">€1,50</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Caffè con Panna</span>
+                <span class="price">€2,50</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Macchiatone</span>
+                <span class="price">€1,80</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Cappuccio</span>
+                <span class="price">€2,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Ginseng Piccolo</span>
+                <span class="price">€1,50</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Ginseng Grande</span>
+                <span class="price">€2,00</span>
+              </div>
+            </div>
+
+            <!-- COLONNA DESTRA -->
+
+            <div>
+              <div class="menu-item">
+                <span class="menu-item-name">Orzo Piccolo</span>
+                <span class="price">€1,50</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Orzo Grande</span>
+                <span class="price">€2,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Latte Bianco</span>
+                <span class="price">€2,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Latte Macchiato</span>
+                <span class="price">€2,50</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Caffè Corretto</span>
+                <span class="price">€2,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Caffè Shakerato</span>
+                <span class="price">€3,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Cioccolata Liscia</span>
+                <span class="price">€3,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Crema al Caffè Piccola</span>
+                <span class="price">€2,50</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Crema al Caffè Media</span>
+                <span class="price">€4,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Selezione di thé e tisane</span>
+                <span class="price">€2,50</span>
+              </div>
             </div>
 
             <div class="menu-item">
-              <span class="menu-item-name">Caffè</span>
-              <span class="price">€1,50</span>
+              <span
+                class="menu-item-name"
+                style="font-size: 14px; font-style: italic"
+                >Varianti: Soia / Deca / Ginseng</span
+              >
+              <span class="price">+ €0,10</span>
             </div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Caffè Americano</span>
-              <span class="price">€1,50</span>
-            </div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Caffè Macchiato</span>
-              <span class="price">€1,50</span>
-            </div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Caffè Decaffeinato</span>
-              <span class="price">€1,50</span>
-            </div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Caffè con Panna</span>
-              <span class="price">€2,50</span>
-            </div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Macchiatone</span>
-              <span class="price">€1,80</span>
-            </div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Cappuccio</span>
-              <span class="price">€2,00</span>
-            </div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Ginseng Piccolo</span>
-              <span class="price">€1,50</span>
-            </div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Ginseng Grande</span>
-              <span class="price">€2,00</span>
-            </div>
-
           </div>
-
-
-          <!-- COLONNA DESTRA -->
-
-          <div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Orzo Piccolo</span>
-              <span class="price">€1,50</span>
-            </div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Orzo Grande</span>
-              <span class="price">€2,00</span>
-            </div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Latte Bianco</span>
-              <span class="price">€2,00</span>
-            </div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Latte Macchiato</span>
-              <span class="price">€2,50</span>
-            </div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Caffè Corretto</span>
-              <span class="price">€2,00</span>
-            </div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Caffè Shakerato</span>
-              <span class="price">€3,00</span>
-            </div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Cioccolata Liscia</span>
-              <span class="price">€3,00</span>
-            </div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Crema al Caffè Piccola</span>
-              <span class="price">€2,50</span>
-            </div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Crema al Caffè Media</span>
-              <span class="price">€4,00</span>
-            </div>
-
-          </div>
-        <div class="menu-item">
-              <span class="menu-item-name">Selezione di thé e tisane</span>
-              <span class="price">€2,50</span>
-            </div>
-
-          </div>
-          <div class="menu-item">
-            <span class="menu-item-name" style="font-size: 14px; font-style: italic;">Varianti: Soia / Deca / Ginseng</span>
-            <span class="price">+ €0,10</span>
-          </div>
-
         </div>
+      </details>
 
-      </div>
-
-    </details>
-
-
-    <!-- =========================
+      <!-- =========================
          BEVANDE
     ========================== -->
 
-    <details class="accordion">
+      <details class="accordion">
+        <summary>Bevande</summary>
 
-      <summary>
-        Bevande
-      </summary>
+        <div class="accordion-content">
+          <div class="two-columns">
+            <!-- COLONNA SINISTRA -->
 
-      <div class="accordion-content">
+            <div>
+              <div class="menu-item">
+                <span class="menu-item-name">Acqua Frizzante</span>
+                <span class="price">€1,50</span>
+              </div>
 
-        <div class="two-columns">
+              <div class="menu-item">
+                <span class="menu-item-name">Acqua Naturale</span>
+                <span class="price">€1,50</span>
+              </div>
 
-          <!-- COLONNA SINISTRA -->
+              <div class="menu-item">
+                <span class="menu-item-name">Acqua Tonica</span>
+                <span class="price">€3,00</span>
+              </div>
 
-          <div>
+              <div class="menu-item">
+                <span class="menu-item-name">Aranciata Amara</span>
+                <span class="price">€3,00</span>
+              </div>
 
-            <div class="menu-item">
-              <span class="menu-item-name">Acqua Frizzante</span>
-              <span class="price">€1,50</span>
+              <div class="menu-item">
+                <span class="menu-item-name">Cedrata</span>
+                <span class="price">€3,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Chinotto</span>
+                <span class="price">€3,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Coca Cola</span>
+                <span class="price">€3,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Coca Zero</span>
+                <span class="price">€3,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Fanta</span>
+                <span class="price">€3,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Lemon Soda</span>
+                <span class="price">€3,00</span>
+              </div>
             </div>
 
-            <div class="menu-item">
-              <span class="menu-item-name">Acqua Naturale</span>
-              <span class="price">€1,50</span>
-            </div>
+            <!-- COLONNA DESTRA -->
 
-            <div class="menu-item">
-              <span class="menu-item-name">Acqua Tonica</span>
-              <span class="price">€3,00</span>
-            </div>
+            <div>
+              <div class="menu-item">
+                <span class="menu-item-name">Red Bull</span>
+                <span class="price">€3,00</span>
+              </div>
 
-            <div class="menu-item">
-              <span class="menu-item-name">Aranciata Amara</span>
-              <span class="price">€3,00</span>
-            </div>
+              <div class="menu-item">
+                <span class="menu-item-name">Sprite</span>
+                <span class="price">€3,00</span>
+              </div>
 
-            <div class="menu-item">
-              <span class="menu-item-name">Cedrata</span>
-              <span class="price">€3,00</span>
-            </div>
+              <div class="menu-item">
+                <span class="menu-item-name">Succo Pera</span>
+                <span class="price">€3,00</span>
+              </div>
 
-            <div class="menu-item">
-              <span class="menu-item-name">Chinotto</span>
-              <span class="price">€3,00</span>
-            </div>
+              <div class="menu-item">
+                <span class="menu-item-name">Succo Pesca</span>
+                <span class="price">€3,00</span>
+              </div>
 
-            <div class="menu-item">
-              <span class="menu-item-name">Coca Cola</span>
-              <span class="price">€3,00</span>
-            </div>
+              <div class="menu-item">
+                <span class="menu-item-name">Succo Albicocca</span>
+                <span class="price">€3,00</span>
+              </div>
 
-            <div class="menu-item">
-              <span class="menu-item-name">Coca Zero</span>
-              <span class="price">€3,00</span>
-            </div>
+              <div class="menu-item">
+                <span class="menu-item-name">Succo ACE</span>
+                <span class="price">€3,00</span>
+              </div>
 
-            <div class="menu-item">
-              <span class="menu-item-name">Fanta</span>
-              <span class="price">€3,00</span>
-            </div>
+              <div class="menu-item">
+                <span class="menu-item-name">Succo Ananas</span>
+                <span class="price">€3,00</span>
+              </div>
 
-            <div class="menu-item">
-              <span class="menu-item-name">Lemon Soda</span>
-              <span class="price">€3,00</span>
-            </div>
+              <div class="menu-item">
+                <span class="menu-item-name">Succo Mirtillo</span>
+                <span class="price">€3,00</span>
+              </div>
 
+              <div class="menu-item">
+                <span class="menu-item-name">Thé Limone</span>
+                <span class="price">€3,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Thé Pesca</span>
+                <span class="price">€3,00</span>
+              </div>
+            </div>
           </div>
-
-
-          <!-- COLONNA DESTRA -->
-
-          <div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Red Bull</span>
-              <span class="price">€3,00</span>
-            </div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Sprite</span>
-              <span class="price">€3,00</span>
-            </div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Succo Pera</span>
-              <span class="price">€3,00</span>
-            </div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Succo Pesca</span>
-              <span class="price">€3,00</span>
-            </div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Succo Albicocca</span>
-              <span class="price">€3,00</span>
-            </div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Succo ACE</span>
-              <span class="price">€3,00</span>
-            </div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Succo Ananas</span>
-              <span class="price">€3,00</span>
-            </div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Succo Mirtillo</span>
-              <span class="price">€3,00</span>
-            </div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Thé Limone</span>
-              <span class="price">€3,00</span>
-            </div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Thé Pesca</span>
-              <span class="price">€3,00</span>
-            </div>
-
-          </div>
-
         </div>
+      </details>
 
-      </div>
-
-    </details>
-
-
-    <!-- =========================
+      <!-- =========================
          APERITIVI & DRINK
     ========================== -->
 
-<details class="accordion">
+      <details class="accordion">
+        <summary>Aperitivi</summary>
 
-  <summary>
-    Aperitivi
-  </summary>
+        <div class="accordion-content">
+          <div class="two-columns">
+            <!-- COLONNA SINISTRA -->
 
-  <div class="accordion-content">
+            <div>
+              <div class="menu-item">
+                <span class="menu-item-name">Milano-Torino</span>
+                <span class="price">€7,00</span>
+              </div>
 
-    <div class="two-columns">
+              <div class="menu-item">
+                <span class="menu-item-name">Americano</span>
+                <span class="price">€7,00</span>
+              </div>
 
-      <!-- COLONNA SINISTRA -->
+              <div class="menu-item">
+                <span class="menu-item-name">Negroni</span>
+                <span class="price">€7,00</span>
+              </div>
 
-      <div>
+              <div class="menu-item">
+                <span class="menu-item-name">Sbagliato</span>
+                <span class="price">€7,00</span>
+              </div>
 
-        <div class="menu-item">
-          <span class="menu-item-name">Milano-Torino</span>
-          <span class="price">€7,00</span>
+              <div class="menu-item">
+                <span class="menu-item-name">Aperol Spritz</span>
+                <span class="price">€7,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Campari Spritz</span>
+                <span class="price">€7,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Hugo Spritz</span>
+                <span class="price">€7,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">
+                  Gin Tonic
+                  <small>(Tanqueray - Malfy)</small>
+                </span>
+                <span class="price">€8,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">
+                  Gin Tonic
+                  <small>(Mare)</small>
+                </span>
+                <span class="price">€10,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Gin Lemon</span>
+                <span class="price">€8,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Vodka Tonic</span>
+                <span class="price">€7,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Vodka Lemon</span>
+                <span class="price">€7,00</span>
+              </div>
+            </div>
+
+            <!-- COLONNA DESTRA -->
+
+            <div>
+              <div class="menu-item">
+                <span class="menu-item-name">Cubalibre</span>
+                <span class="price">€7,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Jager-Bomb</span>
+                <span class="price">€7,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Martini Royale</span>
+                <span class="price">€7,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Campari Soda</span>
+                <span class="price">€4,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Crodino</span>
+                <span class="price">€4,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Sanbitter</span>
+                <span class="price">€4,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Bitter Campari</span>
+                <span class="price">€5,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">
+                  Martini Bianco / Dry / Rosso
+                </span>
+                <span class="price">€4,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Calice di Bianco</span>
+                <span class="price">€5,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Calice di Rosso</span>
+                <span class="price">€5,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Calice di Prosecco</span>
+                <span class="price">€5,00</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="section-note" style="font-size: 14px; font-style: italic">
+            Aperitivo con cassetta €5,00 (max 4 persone)
+          </p>
         </div>
+      </details>
 
-        <div class="menu-item">
-          <span class="menu-item-name">Americano</span>
-          <span class="price">€7,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Negroni</span>
-          <span class="price">€7,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Sbagliato</span>
-          <span class="price">€7,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Aperol Spritz</span>
-          <span class="price">€7,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Campari Spritz</span>
-          <span class="price">€7,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Hugo Spritz</span>
-          <span class="price">€7,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">
-            Gin Tonic
-            <small>(Tanqueray - Malfy)</small>
-          </span>
-          <span class="price">€8,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">
-            Gin Tonic
-            <small>(Mare)</small>
-          </span>
-          <span class="price">€10,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Gin Lemon</span>
-          <span class="price">€8,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Vodka Tonic</span>
-          <span class="price">€7,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Vodka Lemon</span>
-          <span class="price">€7,00</span>
-        </div>
-
-      </div>
-
-
-      <!-- COLONNA DESTRA -->
-
-      <div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Cubalibre</span>
-          <span class="price">€7,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Jager-Bomb</span>
-          <span class="price">€7,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Martini Royale</span>
-          <span class="price">€7,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Campari Soda</span>
-          <span class="price">€4,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Crodino</span>
-          <span class="price">€4,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Sanbitter</span>
-          <span class="price">€4,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Bitter Campari</span>
-          <span class="price">€5,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">
-            Martini Bianco / Dry / Rosso
-          </span>
-          <span class="price">€4,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Calice di Bianco</span>
-          <span class="price">€5,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Calice di Rosso</span>
-          <span class="price">€5,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Calice di Prosecco</span>
-          <span class="price">€5,00</span>
-        </div>
-
-      </div>
-
-    </div>
-
-    <p
-      class="section-note"
-      style="font-size: 14px; font-style: italic;"
-    >
-      Aperitivo con cassetta €5,00 (max 4 persone)
-    </p>
-
-  </div>
-
-</details>
-
-
-    <!-- =========================
+      <!-- =========================
          LIQUORI E DISTILLATI
     ========================== -->
 
-<details class="accordion">
+      <details class="accordion">
+        <summary>Liquori e distillati</summary>
 
-  <summary>
-    Liquori e distillati
-  </summary>
+        <div class="accordion-content">
+          <div class="two-columns">
+            <!-- COLONNA SINISTRA -->
 
-  <div class="accordion-content">
+            <div>
+              <div class="menu-item">
+                <span class="menu-item-name">Averna</span>
+                <span class="price">€4,00</span>
+              </div>
 
-    <div class="two-columns">
+              <div class="menu-item">
+                <span class="menu-item-name">Baileys</span>
+                <span class="price">€4,00</span>
+              </div>
 
-      <!-- COLONNA SINISTRA -->
+              <div class="menu-item">
+                <span class="menu-item-name">Braulio</span>
+                <span class="price">€4,00</span>
+              </div>
 
-      <div>
+              <div class="menu-item">
+                <span class="menu-item-name">Branca Menta</span>
+                <span class="price">€4,00</span>
+              </div>
 
-        <div class="menu-item">
-          <span class="menu-item-name">Averna</span>
-          <span class="price">€4,00</span>
+              <div class="menu-item">
+                <span class="menu-item-name">Fernet Branca</span>
+                <span class="price">€4,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Disaronno</span>
+                <span class="price">€4,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Jagermeister</span>
+                <span class="price">€4,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Montenegro</span>
+                <span class="price">€4,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Sambuca</span>
+                <span class="price">€4,00</span>
+              </div>
+            </div>
+
+            <!-- COLONNA DESTRA -->
+
+            <div>
+              <div class="menu-item">
+                <span class="menu-item-name">Vecchia Romagna</span>
+                <span class="price">€4,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Limoncello</span>
+                <span class="price">€4,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Mirto</span>
+                <span class="price">€4,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Amaro del Capo</span>
+                <span class="price">€4,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Grappa Bianca</span>
+                <span class="price">€4,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Grappa Barricata</span>
+                <span class="price">€4,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Rum Bianco</span>
+                <span class="price">€5,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Rum Scuro</span>
+                <span class="price">€5,00</span>
+              </div>
+            </div>
+          </div>
         </div>
+      </details>
 
-        <div class="menu-item">
-          <span class="menu-item-name">Baileys</span>
-          <span class="price">€4,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Braulio</span>
-          <span class="price">€4,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Branca Menta</span>
-          <span class="price">€4,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Fernet Branca</span>
-          <span class="price">€4,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Disaronno</span>
-          <span class="price">€4,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Jagermeister</span>
-          <span class="price">€4,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Montenegro</span>
-          <span class="price">€4,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Sambuca</span>
-          <span class="price">€4,00</span>
-        </div>
-
-      </div>
-
-
-      <!-- COLONNA DESTRA -->
-
-      <div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Vecchia Romagna</span>
-          <span class="price">€4,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Limoncello</span>
-          <span class="price">€4,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Mirto</span>
-          <span class="price">€4,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Amaro del Capo</span>
-          <span class="price">€4,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Grappa Bianca</span>
-          <span class="price">€4,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Grappa Barricata</span>
-          <span class="price">€4,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Rum Bianco</span>
-          <span class="price">€5,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Rum Scuro</span>
-          <span class="price">€5,00</span>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</details>
-
-
-    <!-- =========================
+      <!-- =========================
          BIRRE
     ========================== -->
 
-<details class="accordion">
+      <details class="accordion">
+        <summary>Birre</summary>
 
-  <summary>
-    Birre
-  </summary>
+        <div class="accordion-content">
+          <div class="two-columns">
+            <!-- COLONNA SINISTRA -->
 
-  <div class="accordion-content">
+            <div>
+              <div class="menu-item">
+                <span class="menu-item-name">Birra Piccola</span>
+                <span class="price">€3,50</span>
+              </div>
 
-    <div class="two-columns">
+              <div class="menu-item">
+                <span class="menu-item-name">Birra Media</span>
+                <span class="price">€6,00</span>
+              </div>
 
-      <!-- COLONNA SINISTRA -->
+              <div class="menu-item">
+                <span class="menu-item-name">Beck’s</span>
+                <span class="price">€4,00</span>
+              </div>
 
-      <div>
+              <div class="menu-item">
+                <span class="menu-item-name">Ceres</span>
+                <span class="price">€4,00</span>
+              </div>
+            </div>
 
-        <div class="menu-item">
-          <span class="menu-item-name">Birra Piccola</span>
-          <span class="price">€3,50</span>
+            <!-- COLONNA DESTRA -->
+
+            <div>
+              <div class="menu-item">
+                <span class="menu-item-name">Super Tennent’s</span>
+                <span class="price">€5,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Corona</span>
+                <span class="price">€4,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Heineken</span>
+                <span class="price">€4,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Ichnusa</span>
+                <span class="price">€4,00</span>
+              </div>
+            </div>
+          </div>
         </div>
+      </details>
 
-        <div class="menu-item">
-          <span class="menu-item-name">Birra Media</span>
-          <span class="price">€6,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Beck’s</span>
-          <span class="price">€4,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Ceres</span>
-          <span class="price">€4,00</span>
-        </div>
-
-      </div>
-
-
-      <!-- COLONNA DESTRA -->
-
-      <div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Super Tennent’s</span>
-          <span class="price">€5,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Corona</span>
-          <span class="price">€4,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Heineken</span>
-          <span class="price">€4,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span class="menu-item-name">Ichnusa</span>
-          <span class="price">€4,00</span>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</details>
-
-
-
-    <!-- =========================
+      <!-- =========================
     FOOD
     ========================== -->
 
-    <details class="accordion">
+      <details class="accordion">
+        <summary>Food</summary>
 
-      <summary>
-        Food
-      </summary>
+        <div class="accordion-content">
+          <div class="two-columns">
+            <!-- COLONNA SINISTRA -->
 
-      <div class="accordion-content">
+            <div>
+              <div class="menu-item">
+                <span class="menu-item-name">Toast</span>
+                <span class="price">€4,00</span>
+              </div>
 
-        <div class="two-columns">
-
-          <!-- COLONNA SINISTRA -->
-
-          <div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Toast</span>
-              <span class="price">€4,00</span>
+              <div class="menu-item">
+                <span class="menu-item-name">Maxi Toast</span>
+                <span class="price">€6,00</span>
+              </div>
             </div>
 
-            <div class="menu-item">
-              <span class="menu-item-name">Maxi Toast</span>
-              <span class="price">€6,00</span>
-            </div>
+            <!-- COLONNA DESTRA -->
 
+            <div>
+              <div class="menu-item">
+                <span class="menu-item-name">Piadina</span>
+                <span class="price">€6,00</span>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Panino</span>
+                <span class="price">€6,00</span>
+              </div>
+            </div>
           </div>
+        </div>
+      </details>
+    </main>
 
-
-          <!-- COLONNA DESTRA -->
-
-          <div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Piadina</span>
-              <span class="price">€6,00</span>
-            </div>
-
-            <div class="menu-item">
-              <span class="menu-item-name">Panino</span>
-              <span class="price">€6,00</span>
-            </div>
-
-          </div>
-        
-        <div>
-        
-      </div>
-    
-    </details>
-
-  </main>
-
-  <div id="footer-container"></div>
-  <script src="components/footer/footer.js"></script>
-
-</body>
+    <div id="footer-container"></div>
+    <script src="components/footer/footer.js"></script>
+  </body>
 </html>

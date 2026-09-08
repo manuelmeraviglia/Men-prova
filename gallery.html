@@ -1,132 +1,95 @@
 <!-- Gallery section with images-->
 
-<!DOCTYPE html>
+<!doctype html>
 
 <html lang="it">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Bar Centrale | Gallery</title>
+    <title>Bar Centrale | Gallery</title>
 
-  <link rel="stylesheet" href="global_styles.css">
+    <link rel="stylesheet" href="global_styles.css" />
 
-  <link rel="stylesheet" href="components/navigation/navigation.css">
-  <link rel="stylesheet" href="components/site-header/site-header.css">
-  <link rel="stylesheet" href="components/footer/footer.css">
+    <link rel="stylesheet" href="components/navigation/navigation.css" />
+    <link rel="stylesheet" href="components/site-header/site-header.css" />
+    <link rel="stylesheet" href="components/footer/footer.css" />
 
-  <style>
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      min-height: 100vh;
-      background: #f8f4ef;
-      color: #171717;
-    }
-
-    .page {
-      max-width: 920px;
-      margin: auto;
-      padding: 130px 25px 80px;
-      text-align: center;
-    }
-
-    h1 {
-      margin-bottom: 25px;
-    }
-
-    .gallery-intro {
-      max-width: 620px;
-      margin: 0 auto 32px;
-      font-family: "Playfair Display", serif;
-      font-size: 22px;
-      line-height: 1.7;
-    }
-
-    .image-slider {
-      margin: 0 auto 28px;
-    }
-
-    @media (max-width: 700px) {
-
-      .nav {
-        padding: 20px;
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
       }
 
-      .navigation {
-        top: 78px;
-        right: 20px;
+      body {
+        min-height: 100vh;
+        background: #f8f4ef;
+        color: #171717;
       }
 
       .page {
-        padding-top: 110px;
+        max-width: 920px;
+        margin: auto;
+        padding: 130px 25px 80px;
+        text-align: center;
+      }
+
+      h1 {
+        margin-bottom: 25px;
       }
 
       .gallery-intro {
-        font-size: 19px;
+        max-width: 620px;
+        margin: 0 auto 32px;
+        font-family: "Playfair Display", serif;
+        font-size: 22px;
+        line-height: 1.7;
       }
 
-    }
+      .image-slider {
+        margin: 0 auto 28px;
+      }
 
-  </style>
+      @media (max-width: 700px) {
+        .nav {
+          padding: 20px;
+        }
 
-</head>
+        .navigation {
+          top: 78px;
+          right: 20px;
+        }
 
-<body>
+        .page {
+          padding-top: 110px;
+        }
 
-  <div id="nav-container"></div>
-  <script src="components/navigation/navigation.js"></script>
+        .gallery-intro {
+          font-size: 19px;
+        }
+      }
+    </style>
+  </head>
 
-  <main class="page">
+  <body>
+    <div id="nav-container"></div>
+    <script src="components/navigation/navigation.js"></script>
 
-<div id="site-header-container"></div>
-<script src="components/site-header/site-header.js"></script>
+    <main class="page">
+      <div id="site-header-container"></div>
+      <script src="components/site-header/site-header.js"></script>
 
-<p class="gallery-intro">Uno sguardo al nostro spazio, al nostro caffè e all'atmosfera che ci accompagna ogni giorno.</p>
+      <p class="gallery-intro">
+        Uno sguardo al nostro spazio, al nostro caffè e all'atmosfera che ci
+        accompagna ogni giorno.
+      </p>
 
-<div class="image-slider" aria-label="Galleria immagini del bar">
-  <button class="slider-btn prev" type="button" aria-label="Immagine precedente">&#10094;</button>
+      <div id="image-slider-container"></div>
+      <script src="components/image-slider/image-slider.js"></script>
+    </main>
 
-  <div class="slider-track">
-    <img class="slide active" src="assets/landing_page_imgs/esterno_lato_strada.jpeg" alt="Cortile esterno del bar">
-    <img class="slide" src="assets/landing_page_imgs/interno.jpeg" alt="Interno del bar">
-  </div>
-
-  <button class="slider-btn next" type="button" aria-label="Immagine successiva">&#10095;</button>
-</div>
-
-
-  </main>
-
-  <div id="footer-container"></div>
-  <script src="components/footer/footer.js"></script>
-  <script>
-    const slides = Array.from(document.querySelectorAll('.slide'));
-    const prevButton = document.querySelector('.slider-btn.prev');
-    const nextButton = document.querySelector('.slider-btn.next');
-
-    let currentIndex = 0;
-
-    function showSlide(index) {
-      currentIndex = (index + slides.length) % slides.length;
-
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === currentIndex);
-      });
-    }
-
-    prevButton.addEventListener('click', () => showSlide(currentIndex - 1));
-    nextButton.addEventListener('click', () => showSlide(currentIndex + 1));
-
-    setInterval(() => {
-      showSlide(currentIndex + 1);
-    }, 4000);
-  </script>
-
-</body>
+    <div id="footer-container"></div>
+    <script src="components/footer/footer.js"></script>
+  </body>
 </html>

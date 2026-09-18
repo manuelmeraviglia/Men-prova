@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: prefix-dev/setup-pixi@v0.9.1
+
+      - run: pixi run pre-commit-run
+
+  docker-smoke-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build image
+        run: docker build -t menu-bar:ci .
+
+      - name: Run container
+        run: docker run -d --name menu-bar-ci -p 8080:80 menu-bar:ci
+
+      - name: Wait for container to be ready
+        run: |
+          for i in $(seq 1 10); do
+            curl -sf http://localhost:8080/ && exit 0
+            sleep 1
+          done
+          echo "Container did not become ready in time" >&2
+          exit 1
+
+      - name: Smoke test key pages
+        run: |
+          for page in index.html menu.html contatti.html chi-siamo.html gallery.html; do
+            curl -sf -o /dev/null -w "%{http_code} $page\n" "http://localhost:8080/$page"
+          done
+
+      - name: Show logs on failure
+        if: failure()
+        run: docker logs menu-bar-ci
+
+      - name: Clean up
+        if: always()
+        run: docker rm -f menu-bar-ci

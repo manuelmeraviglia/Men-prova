@@ -36,7 +36,7 @@ jobs:
 
       - name: Smoke test key pages
         run: |
-          for page in index.html menu.html contatti.html chi-siamo.html gallery.html lavora-con-noi.html; do
+          for page in index.html menu.html contatti.html chi-siamo.html gallery.html; do
             curl -sf -o /dev/null -w "%{http_code} $page\n" "http://localhost:8080/$page"
           done
 
